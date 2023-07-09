@@ -8,13 +8,15 @@ import { IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/Github";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import Spacer from "@/components/spacer";
+import ParticleBackground from "@/components/particles";
 
 export default function Home() {
   return (
     <>
       <Navbar />
+      <ParticleBackground />
       <div className="flex min-h-screen h-fit flex-row items-center justify-center p-50">
-        <div className="flex flex-row items-center gap-60">
+        <div className="flex flex-row items-center gap-40">
           <div className="flex flex-col justify-center gap-5">
             <h1 className="text-7xl font-bold">
               Ruben <br /> Claessens
@@ -50,6 +52,7 @@ export default function Home() {
           className="absolute bottom-5 animate-bounce-arrow scale-150 primaryrgb"
         />
       </div>
+      <div className="h-screen"></div>
     </>
   );
 }
