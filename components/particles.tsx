@@ -2,8 +2,7 @@ import React from "react";
 import { useCallback } from "react";
 import { loadFull } from "tsparticles";
 import Particles from "react-tsparticles";
-import styles from "../styles/Home.module.css";
-import { Container, Engine } from "tsparticles-engine";
+import { Engine } from "tsparticles-engine";
 
 const ParticleBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -24,7 +23,7 @@ const ParticleBackground = () => {
         },
       },
       color: {
-        value: "#6ee7b7",
+        value: "#34d399",
       },
       shape: {
         type: "circle",
@@ -127,7 +126,7 @@ const ParticleBackground = () => {
   }, []);
 
   return (
-    <div id="particle-background z-20">
+    <div id="particle-background" className="relative -z-50">
       <Particles
         id="tsparticles"
         init={particlesInit}
