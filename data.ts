@@ -26,8 +26,22 @@ export const tools = [
 ];
 
 export const professional = [
-  "Communicating",
-  "Leading",
-  "Problem solving",
-  "Collaborating",
+  {
+    title: "Communicating",
+    value: 80,
+  },
+  {
+    title: "Leading",
+    value: 70,
+  },
+  {
+    title: "Problem solving",
+    value: 90,
+  },
+  {
+    title: "Collaborating",
+    value: 80,
+  },
 ];
+
+export const tolearn = ["Kubernetes", "Flutter (Dart)", "Swift", "AI/ML"];
