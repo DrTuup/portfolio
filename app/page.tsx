@@ -9,7 +9,7 @@ import Navbar from "@/components/navbar";
 import ListItem from "@/components/listitem";
 import Title from "@/components/title";
 import { Card } from "@/components/card";
-import { professional } from "@/data";
+import { backend, frontend, professional, tools } from "@/data";
 
 export default function Home() {
   const calculateAge = () => {
@@ -81,13 +81,49 @@ export default function Home() {
         className="flex min-h-screen h-fit flex-col items-center justify-center gap-28"
       >
         <Title text="Skills" />
-        <div className="flex flex-row justify-center items-center gap-64">
+        <div className="flex flex-row justify-center items-stretch gap-64">
           <Card title="Professional skills">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
               {professional.map((skill) => (
                 <ListItem key={skill} text={skill} />
               ))}
             </ul>
+          </Card>
+          <Card title="Development skills">
+            <p>Front-end</p>
+            <div className="flex flex-wrap gap-2 p-2">
+              {frontend.map((skill) => (
+                <div
+                  key={skill}
+                  className="badge badge-lg badge-primary badge-outline"
+                >
+                  {skill}
+                </div>
+              ))}
+            </div>
+            <p>Back-end</p>
+            <div className="flex flex-wrap gap-2 p-2">
+              {backend.map((skill) => (
+                <div
+                  key={skill}
+                  className="badge badge-lg badge-primary badge-outline"
+                >
+                  {skill}
+                </div>
+              ))}
+            </div>
+
+            <p>Tools</p>
+            <div className="flex flex-wrap gap-2 p-2">
+              {tools.map((skill) => (
+                <div
+                  key={skill}
+                  className="badge badge-lg badge-primary badge-outline"
+                >
+                  {skill}
+                </div>
+              ))}
+            </div>
           </Card>
         </div>
       </div>
