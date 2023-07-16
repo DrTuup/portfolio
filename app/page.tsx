@@ -9,6 +9,7 @@ import Navbar from "@/components/navbar";
 import ListItem from "@/components/listitem";
 import Title from "@/components/title";
 import { Card } from "@/components/card";
+import { professional } from "@/data";
 
 export default function Home() {
   const calculateAge = () => {
@@ -83,10 +84,9 @@ export default function Home() {
         <div className="flex flex-row justify-center items-center gap-64">
           <Card title="Professional skills">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
-              <ListItem text="Communicating" />
-              <ListItem text="Leading" />
-              <ListItem text="Problem Solving" />
-              <ListItem text="Collaborating" />
+              {professional.map((skill) => (
+                <ListItem key={skill} text={skill} />
+              ))}
             </ul>
           </Card>
         </div>
