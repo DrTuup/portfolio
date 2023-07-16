@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 30, 31, 33;
-  --primary-rgb: 110, 231, 183;
+  --foreground-rgb: #ffffff;
+  --background-rgb: #1e1f21;
+  --primary-rgb: #6ee7b7;
   scroll-behavior: smooth;
 }
 
