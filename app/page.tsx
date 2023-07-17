@@ -7,15 +7,17 @@ import me from "@/assets/images/me_square.jpg";
 import ParticleBackground from "@/components/particles";
 import Navbar from "@/components/navbar";
 import ListItem from "@/components/listitem";
-import Title from "@/components/title";
-import { Card } from "@/components/card";
+import Title, { Subtitle } from "@/components/title";
+import { Skillcard, ExperienceCard } from "@/components/card";
 import {
   backend,
+  education,
   freetime,
   frontend,
   professional,
   tolearn,
   tools,
+  work,
 } from "@/data";
 
 export default function Home() {
@@ -88,7 +90,7 @@ export default function Home() {
       >
         <Title text="Skills" />
         <div className="flex flex-row justify-between items-stretch gap-32">
-          <Card title="Professional skills">
+          <Skillcard title="Professional skills">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
               {professional.map((skill) => (
                 <div key={skill.title}>
@@ -107,8 +109,8 @@ export default function Home() {
                 </div>
               ))}
             </ul>
-          </Card>
-          <Card title="Development skills">
+          </Skillcard>
+          <Skillcard title="Development skills">
             <p className="text-lg">Front-end</p>
             <div className="flex flex-wrap gap-2 p-2">
               {frontend.map((skill) => (
@@ -143,21 +145,47 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </Card>
-          <Card title="Want to learn">
+          </Skillcard>
+          <Skillcard title="Want to learn">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
               {tolearn.map((skill) => (
                 <ListItem key={skill} text={skill} />
               ))}
             </ul>
-          </Card>
+          </Skillcard>
         </div>
       </div>
       <div
         id="experience"
-        className="flex min-h-screen h-fit flex-col items-center justify-center gap-28"
+        className="flex flex-col min-h-screen h-fit items-center justify-center gap-10"
       >
         <Title text="Work and education" />
+        <div className="flex flex-row justify-between items-stretch">
+          <div className="flex flex-col items-center justify-stretch gap-3">
+            <Subtitle text="Work" />
+            {work.map((job) => (
+              <ExperienceCard
+                key={job.title}
+                title={job.title}
+                time={job.time}
+                description={job.description}
+                tags={job.tags}
+              />
+            ))}
+          </div>
+          <div className="flex flex-col items-center justify-stretch gap-3">
+            <Subtitle text="Education" />
+            {education.map((job) => (
+              <ExperienceCard
+                key={job.title}
+                title={job.title}
+                time={job.time}
+                description={job.description}
+                tags={job.tags}
+              />
+            ))}
+          </div>
+        </div>
       </div>
       <ParticleBackground />
     </>
