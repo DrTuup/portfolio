@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="flex flex-row gap-20 items-center mr-20">
         <NavItem href="#about" name="About" />
         <NavItem href="#skills" name="Skills" />
-        <NavItem href="#experience" name="Work and Eduction" />
+        <NavItem href="#experience" name="Work and education" />
         <NavItem href="#contact" name="Contact" />
       </div>
     </nav>

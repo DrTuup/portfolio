@@ -1,3 +1,10 @@
+export const freetime = [
+  "Create projects",
+  "Play games",
+  "Listen to and make music",
+  "Fitness",
+];
+
 export const frontend = [
   "HTML5",
   "CSS3",

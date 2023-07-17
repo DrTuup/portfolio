@@ -9,8 +9,14 @@ import Navbar from "@/components/navbar";
 import ListItem from "@/components/listitem";
 import Title from "@/components/title";
 import { Card } from "@/components/card";
-import { backend, frontend, professional, tolearn, tools } from "@/data";
-import ConstructionIcon from "@mui/icons-material/Construction";
+import {
+  backend,
+  freetime,
+  frontend,
+  professional,
+  tolearn,
+  tools,
+} from "@/data";
 
 export default function Home() {
   const calculateAge = () => {
@@ -59,10 +65,9 @@ export default function Home() {
           <div className="text-xl text-foreground w-1/5 outline outline-2 outline-primary p-5 h-fit rounded-[40px_40px_10px_40px]">
             In my free time I like to:
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
-              <ListItem text="Create projects" />
-              <ListItem text="Play games" />
-              <ListItem text="Listen to and make music" />
-              <ListItem text="Fitness" />
+              {freetime.map((activity) => (
+                <ListItem key={activity} text={activity} />
+              ))}
             </ul>
           </div>
           <Image src={me} alt="me" height={350} className="rounded-full" />
@@ -86,19 +91,20 @@ export default function Home() {
           <Card title="Professional skills">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
               {professional.map((skill) => (
-                <>
+                <div key={skill.title}>
                   <p key={skill.title} className="my-2 text-xl">
                     {skill.title}
                   </p>
                   <span>
                     <progress
+                      key={skill.value}
                       className="progress progress-primary w-40"
                       value={skill.value}
                       max="100"
                     />{" "}
                     {skill.value}%
                   </span>
-                </>
+                </div>
               ))}
             </ul>
           </Card>
@@ -146,6 +152,12 @@ export default function Home() {
             </ul>
           </Card>
         </div>
+      </div>
+      <div
+        id="experience"
+        className="flex min-h-screen h-fit flex-col items-center justify-center gap-28"
+      >
+        <Title text="Work and education" />
       </div>
       <ParticleBackground />
     </>
