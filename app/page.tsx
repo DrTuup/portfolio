@@ -19,6 +19,10 @@ import {
   tools,
   work,
 } from "@/data";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
+import AddLocationIcon from "@mui/icons-material/AddLocation";
 
 export default function Home() {
   const calculateAge = () => {
@@ -39,45 +43,54 @@ export default function Home() {
       <Navbar />
       <div
         id="home"
-        className="flex min-h-screen h-fit flex-row items-center justify-center"
+        className="flex flex-col items-center justify-evenly text-center min-h-screen h-fit m-5"
       >
-        <div className="flex flex-row items-center gap-40">
-          <div className="flex flex-col justify-center gap-5">
-            <p className="text-3xl font-semibold text-foreground">
-              Hi there!👋🏻 I&apos;m
-            </p>
+        <div className="flex flex-col items-center gap-7">
+          <div className="flex flex-col gap-7">
+            <p className="text-foreground">Hi there!👋🏻 I&apos;m</p>
             <Title text="Ruben Claessens" />
-            <p className="text-2xl text-primary text-emerald-400">
-              Software Engineer
-            </p>
-            <p className="text-2xl text-foreground max-w-[30ch]">
+            <p className="text-primary">Software Engineer</p>
+            <p className="text-foreground max-w-[25ch]">
               I&apos;m a Software Engineer who loves writing ideas into code.
             </p>
           </div>
-          <Image src={memoji} alt="memoji" className="scale-75" />
+          <Image src={memoji} width={150} height={150} alt="memoji" />
         </div>
-        <p className="absolute bottom-20 text-foreground">Get to know me!</p>
-        <ArrowDownward
-          fontSize="large"
-          className="absolute bottom-5 animate-bounce-arrow scale-150 text-primary"
-        />
+        <div className="flex flex-col items-center">
+          <p className="text-foreground">Get to know me!</p>
+          <ArrowDownward
+            fontSize="large"
+            className="text-primary animate-bounce-arrow"
+          />
+        </div>
       </div>
       <div
         id="about"
-        className="flex min-h-screen h-fit flex-col items-center justify-center gap-10"
+        className="flex flex-col items-center justify-center text-center min-h-screen h-fit gap-7 m-5"
       >
         <Title text="About me" />
-        <div className="flex flex-row justify-center items-center gap-32 rounded-md m-10">
-          <div className="text-xl text-foreground w-1/5 outline outline-2 outline-primary p-5 h-fit rounded-[40px_40px_10px_40px]">
-            In my free time I like to:
+        <div className="flex flex-col items-center gap-7">
+          <div>
+            <p className="text-foreground text-xl">
+              In my free time I like to:
+            </p>
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
-              {freetime.map((activity) => (
-                <ListItem key={activity} text={activity} />
-              ))}
+              {freetime
+                .sort((a, b) => a.length - b.length)
+                .reverse()
+                .map((activity) => (
+                  <ListItem key={activity} text={activity} />
+                ))}
             </ul>
           </div>
-          <Image src={me} alt="me" height={350} className="rounded-full" />
-          <p className="text-xl text-foreground w-1/5 outline outline-2 outline-primary p-5 h-fit rounded-[40px_40px_40px_10px]">
+          <Image
+            src={me}
+            alt="me"
+            height={150}
+            width={150}
+            className="rounded-full"
+          />
+          <p className="text-foreground">
             I&apos;m a {calculateAge()} year old Software Engineer from the
             Netherlands. I love to turn ideas into code and I&apos;m always open
             to learn new things.
@@ -90,21 +103,21 @@ export default function Home() {
       </div>
       <div
         id="skills"
-        className="flex min-h-screen h-fit flex-col items-center justify-center gap-10"
+        className="flex flex-col items-center justify-evenly text-center min-h-screen h-fit m-5 gap-7"
       >
         <Title text="Skills" />
-        <div className="flex flex-row justify-center w-4/5 items-stretch gap-16">
+        <div className="flex flex-col items-center justify-center gap-7">
           <Skillcard title="Professional skills">
-            <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
+            <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)] text-left text-sm">
               {professional.map((skill) => (
                 <div key={skill.title}>
-                  <p key={skill.title} className="my-2 text-xl">
+                  <p key={skill.title} className="my-2 text-lg">
                     {skill.title}
                   </p>
                   <span>
                     <progress
                       key={skill.value}
-                      className="progress progress-primary w-40"
+                      className="progress progress-primary w-3/5"
                       value={skill.value}
                       max="100"
                     />{" "}
@@ -115,35 +128,35 @@ export default function Home() {
             </ul>
           </Skillcard>
           <Skillcard title="Development skills">
-            <p className="text-lg">Front-end</p>
+            <p className="text-lg text-left">Front-end</p>
             <div className="flex flex-wrap gap-2 p-2">
               {frontend.map((skill) => (
                 <div
                   key={skill}
-                  className="badge badge-lg badge-primary badge-outline"
+                  className="badge badge-md badge-primary badge-outline"
                 >
                   {skill}
                 </div>
               ))}
             </div>
-            <p className="text-lg">Back-end</p>
+            <p className="text-left text-lg">Back-end</p>
             <div className="flex flex-wrap gap-2 p-2">
               {backend.map((skill) => (
                 <div
                   key={skill}
-                  className="badge badge-lg badge-primary badge-outline"
+                  className="badge badge-md badge-primary badge-outline"
                 >
                   {skill}
                 </div>
               ))}
             </div>
 
-            <p className="text-lg">Tools</p>
+            <p className="text-left text-lg">Tools</p>
             <div className="flex flex-wrap gap-2 p-2">
               {tools.map((skill) => (
                 <div
                   key={skill}
-                  className="badge badge-lg badge-primary badge-outline"
+                  className="badge badge-md badge-primary badge-outline"
                 >
                   {skill}
                 </div>
@@ -151,21 +164,56 @@ export default function Home() {
             </div>
           </Skillcard>
           <Skillcard title="Want to learn">
-            <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
-              {tolearn.map((skill) => (
-                <ListItem key={skill} text={skill} />
-              ))}
-            </ul>
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col items-center gap-1 text-foreground">
+                <Image
+                  alt="swift"
+                  width={50}
+                  height={50}
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+                />
+                Swift
+              </div>
+              <div className="flex justify-center gap-20">
+                <div className="flex flex-col items-center gap-1 text-foreground">
+                  <Image
+                    alt="kunernetes"
+                    width={50}
+                    height={50}
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                  />
+                  K8s
+                </div>
+                <div className="flex flex-col items-center gap-1 text-foreground">
+                  <Image
+                    alt="flutter"
+                    width={50}
+                    height={50}
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                  />
+                  Flutter
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-1 text-foreground">
+                <Image
+                  alt="pytorch"
+                  width={50}
+                  height={50}
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"
+                />
+                PyTorch
+              </div>
+            </div>
           </Skillcard>
         </div>
       </div>
       <div
         id="experience"
-        className="flex flex-col min-h-screen h-fit items-center justify-center gap-10"
+        className="flex flex-col items-center justify-center text-center min-h-screen h-fit mt-24 m-5 gap-7"
       >
         <Title text="Work and education" />
-        <div className="flex flex-row justify-between items-stretch">
-          <div className="flex flex-col items-center justify-stretch gap-3">
+        <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-4">
             <Subtitle text="Work" />
             {work.map((job) => (
               <ExperienceCard
@@ -177,7 +225,7 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className="flex flex-col items-center justify-stretch gap-3">
+          <div className="flex flex-col items-center gap-4">
             <Subtitle text="Education" />
             {education.map((job) => (
               <ExperienceCard
@@ -193,15 +241,15 @@ export default function Home() {
       </div>
       <div
         id="contact"
-        className="flex flex-col min-h-screen h-fit items-center justify-center gap-10"
+        className="flex flex-col items-center justify-center text-center min-h-screen h-fit m-5"
       >
         <Title text="Contact" />
-        <div className="flex flex-col items-center justify-center gap-5 w-3/5">
-          <p className="text-2xl text-foreground">
+        <div className="flex flex-col items-center justify-center gap-5">
+          <p className="text-lg text-foreground">
             Want to get in touch? Feel free to contact me!
           </p>
-          <form className="flex flex-row justify-evenly gap-5 w-full">
-            <div className="flex flex-col w-1/2">
+          <form className="flex flex-col items-center w-4/5">
+            <div className="flex flex-col w-full">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-foreground">
@@ -227,20 +275,20 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="form-control w-1/2">
+            <div className="form-control w-full">
               <label className="label">
                 <span className="label-text text-foreground">
                   Leave a message!
                 </span>
               </label>
               <textarea
-                className="textarea textarea-bordered textarea-primary text-foreground h-full"
+                className="textarea textarea-bordered textarea-primary text-foreground"
                 placeholder="Message"
               />
             </div>{" "}
           </form>
           <button
-            className="text-foreground hover:bg-primary w-fit transition duration-300 p-3 rounded-lg outline outline-primary"
+            className=" outline outline-primary rounded-lg p-2 w-4/5 hover:bg-primary hover:text-background transition-all duration-300"
             onClick={sendMail}
           >
             Send
