@@ -2,8 +2,8 @@
 
 import ArrowDownward from "@mui/icons-material/ArrowDownward";
 import Image from "next/image";
-import memoji from "@/assets/images/memoji.png";
-import me from "@/assets/images/me_square.jpg";
+import memoji from "/memoji.jpg";
+import me from "/me_square.jpg";
 import ParticleBackground from "@/components/particles";
 import Navbar from "@/components/navbar";
 import ListItem from "@/components/listitem";
@@ -15,14 +15,9 @@ import {
   freetime,
   frontend,
   professional,
-  tolearn,
   tools,
   work,
 } from "@/data";
-import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
-import AddLocationIcon from "@mui/icons-material/AddLocation";
 
 export default function Home() {
   const calculateAge = () => {
