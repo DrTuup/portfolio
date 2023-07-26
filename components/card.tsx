@@ -5,7 +5,7 @@ interface SkillcardProps {
 
 export function Skillcard({ title, children }: SkillcardProps) {
   return (
-    <div className="bg-background rounded-md shadow-card-shadow p-8">
+    <div className="bg-background flex-[1_1_0] w-fit rounded-md shadow-card-shadow p-8">
       <h1 className="font-bold text-3xl mb-5 text-foreground">{title}</h1>
       {children}
     </div>
@@ -33,7 +33,7 @@ export function ExperienceCard({
       <hr />
       <p className="my-2">{explanation}</p>
       <hr />
-      <div className="flex flex-wrap gap-2 my-2">
+      <div className="flex flex-wrap gap-2 mt-2">
         {tags.map((tag) => (
           <div key={tag} className="badge badge-lg badge-primary badge-outline">
             {tag}

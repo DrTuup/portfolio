@@ -30,6 +30,10 @@ export default function Home() {
     return age;
   };
 
+  function sendMail() {
+    console.log("send mail");
+  }
+
   return (
     <>
       <Navbar />
@@ -86,10 +90,10 @@ export default function Home() {
       </div>
       <div
         id="skills"
-        className="flex min-h-screen h-fit flex-col items-center justify-center gap-28"
+        className="flex min-h-screen h-fit flex-col items-center justify-center gap-10"
       >
         <Title text="Skills" />
-        <div className="flex flex-row justify-between items-stretch gap-32">
+        <div className="flex flex-row justify-center w-4/5 items-stretch gap-16">
           <Skillcard title="Professional skills">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
               {professional.map((skill) => (
@@ -185,6 +189,62 @@ export default function Home() {
               />
             ))}
           </div>
+        </div>
+      </div>
+      <div
+        id="contact"
+        className="flex flex-col min-h-screen h-fit items-center justify-center gap-10"
+      >
+        <Title text="Contact" />
+        <div className="flex flex-col items-center justify-center gap-5 w-3/5">
+          <p className="text-2xl text-foreground">
+            Want to get in touch? Feel free to contact me!
+          </p>
+          <form className="flex flex-row justify-evenly gap-5 w-full">
+            <div className="flex flex-col w-1/2">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-foreground">
+                    What is your name?
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="input input-bordered input-primary text-foreground"
+                />
+              </div>{" "}
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-foreground">
+                    What is your email?
+                  </span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="input input-bordered input-primary text-foreground"
+                />
+              </div>
+            </div>
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text text-foreground">
+                  Leave a message!
+                </span>
+              </label>
+              <textarea
+                className="textarea textarea-bordered textarea-primary text-foreground h-full"
+                placeholder="Message"
+              />
+            </div>{" "}
+          </form>
+          <button
+            className="text-foreground hover:bg-primary w-fit transition duration-300 p-3 rounded-lg outline outline-primary"
+            onClick={sendMail}
+          >
+            Send
+          </button>{" "}
         </div>
       </div>
       <ParticleBackground />

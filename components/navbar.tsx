@@ -4,7 +4,7 @@ import logo from "@/assets/images/logo.png";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full flex flex-row gap-20 p-5 justify-between z-20 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 w-full flex flex-row gap-20 p-3 justify-between z-20 backdrop-blur-md">
       <a href="#home">
         <Image src={logo} alt="logo" className="self-start scale-75" />
       </a>

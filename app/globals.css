@@ -7,6 +7,7 @@
   --background-rgb: #1e1f21;
   --primary-rgb: #6ee7b7;
   scroll-behavior: smooth;
+  font-size: 15px;
 }
 
 body {
