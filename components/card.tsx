@@ -5,8 +5,8 @@ interface SkillcardProps {
 
 export function Skillcard({ title, children }: SkillcardProps) {
   return (
-    <div className="bg-background flex-[1_1_0] w-fit rounded-md shadow-card-shadow p-8">
-      <h1 className="font-bold text-3xl mb-5 text-foreground">{title}</h1>
+    <div className="bg-background w-full rounded-md shadow-card-shadow p-8">
+      <h1 className="text-2xl font-bold mb-5 text-foreground">{title}</h1>
       {children}
     </div>
   );
@@ -27,7 +27,7 @@ export function ExperienceCard({
   tags,
 }: ExperienceCardProps) {
   return (
-    <div className="flex flex-grow flex-col bg-background rounded-md shadow-card-shadow p-5 w-[66%]">
+    <div className="flex flex-grow flex-col bg-background rounded-md shadow-card-shadow p-5 w-full">
       <h1 className="font-bold text-xl mb-1 text-foreground">{title}</h1>
       <p className="my-2">{time}</p>
       <hr />

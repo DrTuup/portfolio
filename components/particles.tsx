@@ -6,7 +6,7 @@ import { Engine } from "tsparticles-engine";
 
 const ParticleBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
+    // console.log(engine);
     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
     // starting from v2 you can add only the features you need reducing the bundle size
@@ -121,16 +121,11 @@ const ParticleBackground = () => {
     retina_detect: true,
   };
 
-  const particlesLoaded = useCallback(async (container: any) => {
-    await console.log(container);
-  }, []);
-
   return (
     <div id="particle-background" className="relative -z-50">
       <Particles
         id="tsparticles"
         init={particlesInit}
-        loaded={particlesLoaded}
         options={ParticlesConfig}
         height="100vh"
         width="100vw"
