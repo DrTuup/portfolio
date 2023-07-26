@@ -2,8 +2,8 @@
 
 import ArrowDownward from "@mui/icons-material/ArrowDownward";
 import Image from "next/image";
-import memoji from "/memoji.jpg";
-import me from "/me_square.jpg";
+import memoji from "@/public/memoji.jpg";
+import me from "@/public/me_square.jpg";
 import ParticleBackground from "@/components/particles";
 import Navbar from "@/components/navbar";
 import ListItem from "@/components/listitem";
