@@ -3,6 +3,7 @@ export const freetime = [
   "Play games",
   "Listen to and make music",
   "Fitness",
+  "Play chess",
 ];
 
 export const frontend = [

@@ -38,21 +38,25 @@ export default function Home() {
       <Navbar />
       <div
         id="home"
-        className="flex flex-col items-center justify-evenly text-center min-h-screen h-fit m-5"
+        className="flex flex-col items-center justify-evenly text-center min-h-screen h-fit m-5 lg:p-10 lg:m-0"
       >
-        <div className="flex flex-col items-center gap-7">
-          <div className="flex flex-col gap-7">
-            <p className="text-foreground">Hi there!👋🏻 I&apos;m</p>
+        <div className="flex flex-col items-center gap-7 lg:flex-row">
+          <div className="flex flex-col gap-7 lg:text-left">
+            <p className="text-foreground sm:text-2xl">Hi there!👋🏻 I&apos;m</p>
             <Title text="Ruben Claessens" />
-            <p className="text-primary">Software Engineer</p>
-            <p className="text-foreground max-w-[25ch]">
-              I&apos;m a Software Engineer who loves writing ideas into code.
+            <p className="text-primary sm:text-2xl">Software Engineer</p>
+            <p className="text-foreground max-w-[25ch] sm:max-w-[30ch] sm:text-2xl">
+              I&apos;m a Software Engineer who loves turning ideas into code.
             </p>
           </div>
-          <Image src={memoji} width={150} height={150} alt="memoji" />
+          <Image
+            src={memoji}
+            alt="memoji"
+            className="w-[150px] sm:w-[225px] h-[150px] sm:h-[225px]"
+          />
         </div>
         <div className="flex flex-col items-center">
-          <p className="text-foreground">Get to know me!</p>
+          <p className="text-foreground sm:text-2xl">Get to know me!</p>
           <ArrowDownward
             fontSize="large"
             className="text-primary animate-bounce-arrow"
@@ -61,12 +65,12 @@ export default function Home() {
       </div>
       <div
         id="about"
-        className="flex flex-col items-center justify-center text-center min-h-screen h-fit gap-7 m-5"
+        className="flex flex-col items-center justify-center text-center min-h-screen h-fit gap-7 p-10"
       >
         <Title text="About me" />
-        <div className="flex flex-col items-center gap-7">
+        <div className="flex flex-col items-center gap-7 lg:flex-row lg:justify-evenly lg:w-full">
           <div>
-            <p className="text-foreground text-xl">
+            <p className="text-foreground text-xl sm:text-xl">
               In my free time I like to:
             </p>
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
@@ -81,11 +85,9 @@ export default function Home() {
           <Image
             src={me}
             alt="me"
-            height={150}
-            width={150}
-            className="rounded-full"
+            className="rounded-full w-[150px] sm:w-[225px] h-[150px] sm:h-[225px]"
           />
-          <p className="text-foreground">
+          <p className="text-foreground sm:text-xl sm:max-w-[35ch] lg:max-w-[20ch]">
             I&apos;m a {calculateAge()} year old Software Engineer from the
             Netherlands. I love to turn ideas into code and I&apos;m always open
             to learn new things.
@@ -98,10 +100,10 @@ export default function Home() {
       </div>
       <div
         id="skills"
-        className="flex flex-col items-center justify-evenly text-center min-h-screen h-fit m-5 gap-7"
+        className="flex flex-col items-center justify-center text-center min-h-screen h-fit m-5 gap-7 lg:p-10"
       >
         <Title text="Skills" />
-        <div className="flex flex-col items-center justify-center gap-7">
+        <div className="flex flex-col items-center justify-center gap-7 lg:flex-row">
           <Skillcard title="Professional skills">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)] text-left text-sm">
               {professional.map((skill) => (
@@ -204,10 +206,10 @@ export default function Home() {
       </div>
       <div
         id="experience"
-        className="flex flex-col items-center justify-center text-center min-h-screen h-fit mt-24 m-5 gap-7"
+        className="flex flex-col items-center justify-center text-center min-h-screen h-fit mt-24 gap-7 lg:p-10"
       >
         <Title text="Work and education" />
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-6 lg:flex-row">
           <div className="flex flex-col items-center gap-4">
             <Subtitle text="Work" />
             {work.map((job) => (
@@ -239,10 +241,10 @@ export default function Home() {
         className="flex flex-col items-center justify-center text-center min-h-screen h-fit m-5"
       >
         <Title text="Contact" />
-        <div className="flex flex-col items-center justify-center gap-5">
-          <p className="text-lg text-foreground">
-            Want to get in touch? Feel free to contact me!
-          </p>
+        <p className="text-lg text-foreground p-3">
+          Want to get in touch? Feel free to contact me!
+        </p>
+        <div className="flex flex-col items-center justify-center gap-5 w-4/5">
           <form className="flex flex-col items-center w-4/5">
             <div className="flex flex-col w-full">
               <div className="form-control">
@@ -283,7 +285,7 @@ export default function Home() {
             </div>{" "}
           </form>
           <button
-            className=" outline outline-primary rounded-lg p-2 w-4/5 hover:bg-primary hover:text-background transition-all duration-300"
+            className="outline outline-primary rounded-lg p-2 w-1/4 hover:bg-primary hover:text-background transition-all duration-300"
             onClick={sendMail}
           >
             Send

@@ -3,5 +3,5 @@ interface ListItemProps {
 }
 
 export default function ListItem({ text }: ListItemProps) {
-  return <li className="my-2 text-foreground">{text}</li>;
+  return <li className="my-2 sm:my-4 text-foreground text-xl">{text}</li>;
 }

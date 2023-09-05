@@ -4,7 +4,7 @@ import logo from "@/assets/images/logo.png";
 
 export default function Navbar() {
   return (
-    <nav className="hidden">
+    <nav className="hidden top-0 left-0 w-full flex-row gap-20 p-5 justify-between z-10 backdrop-blur-md lg:fixed lg:flex lg:p-3">
       <a href="#home">
         <Image src={logo} alt="logo" className="self-start scale-75" />
       </a>
