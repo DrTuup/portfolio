@@ -209,7 +209,7 @@ export default function Home() {
         className="flex flex-col items-center justify-center text-center min-h-screen h-fit mt-24 gap-7 lg:p-10"
       >
         <Title text="Work and education" />
-        <div className="flex flex-col items-center gap-6 lg:flex-row">
+        <div className="flex flex-col items-stretch gap-6 lg:flex-row">
           <div className="flex flex-col items-center gap-4">
             <Subtitle text="Work" />
             {work.map((job) => (

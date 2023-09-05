@@ -27,7 +27,7 @@ export function ExperienceCard({
   tags,
 }: ExperienceCardProps) {
   return (
-    <div className="flex flex-grow flex-col bg-background rounded-md shadow-card-shadow p-5 w-full md:w-4/5 lg:w-full lg:h-full lg:p-3">
+    <div className="flex flex-grow flex-col bg-background rounded-md shadow-card-shadow p-5 w-full md:w-4/5 lg:w-full">
       <h1 className="font-bold text-xl mb-1 text-foreground lg:text-base">
         {title}
       </h1>
