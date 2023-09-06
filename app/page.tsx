@@ -38,11 +38,13 @@ export default function Home() {
       <Navbar />
       <div
         id="home"
-        className="flex flex-col items-center justify-evenly text-center min-h-screen h-fit m-5 lg:p-10 lg:m-0"
+        className="flex flex-col items-center justify-evenly text-center min-h-screen h-fit xl:justify-center"
       >
-        <div className="flex flex-col items-center gap-7 lg:flex-row">
-          <div className="flex flex-col gap-7 lg:text-left">
-            <p className="text-foreground sm:text-2xl">Hi there!👋🏻 I&apos;m</p>
+        <div className="flex flex-col items-center gap-7 lg:flex-row xl:gap-52">
+          <div className="flex flex-col gap-7 lg:text-left xl:gap-7">
+            <p className="text-foreground sm:text-2xl xl:text-3xl">
+              Hi there!👋🏻 I&apos;m
+            </p>
             <Title text="Ruben Claessens" />
             <p className="text-primary sm:text-2xl">Software Engineer</p>
             <p className="text-foreground max-w-[25ch] sm:max-w-[30ch] sm:text-2xl">
@@ -52,10 +54,10 @@ export default function Home() {
           <Image
             src={memoji}
             alt="memoji"
-            className="w-[150px] sm:w-[225px] h-[150px] sm:h-[225px]"
+            className="w-[150px] sm:w-[225px] h-[150px] sm:h-[225px] xl:w-[250px] xl:h-[250px]"
           />
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center xl:absolute xl:bottom-20">
           <p className="text-foreground sm:text-2xl">Get to know me!</p>
           <ArrowDownward
             fontSize="large"
@@ -65,10 +67,10 @@ export default function Home() {
       </div>
       <div
         id="about"
-        className="flex flex-col items-center justify-center text-center min-h-screen h-fit gap-7 p-10"
+        className="flex flex-col min-h-screen h-fit items-center justify-center text-center gap-7 xl:gap-24 xl:items-evenly"
       >
         <Title text="About me" />
-        <div className="flex flex-col items-center gap-7 lg:flex-row lg:justify-evenly lg:w-full">
+        <div className="flex flex-col items-center gap-7 lg:flex-row lg:justify-evenly lg:w-full xl:justify-center xl:gap-32">
           <div>
             <p className="text-foreground text-xl sm:text-xl">
               In my free time I like to:
@@ -85,9 +87,9 @@ export default function Home() {
           <Image
             src={me}
             alt="me"
-            className="rounded-full w-[150px] sm:w-[225px] h-[150px] sm:h-[225px]"
+            className="rounded-full w-[150px] sm:w-[225px] h-[150px] sm:h-[225px] xl:h-[300px] xl:w-[300px]"
           />
-          <p className="text-foreground sm:text-xl sm:max-w-[35ch] lg:max-w-[20ch]">
+          <p className="text-foreground max-w-[30ch] sm:text-xl sm:max-w-[35ch] lg:max-w-[20ch]">
             I&apos;m a {calculateAge()} year old Software Engineer from the
             Netherlands. I love to turn ideas into code and I&apos;m always open
             to learn new things.
@@ -100,10 +102,10 @@ export default function Home() {
       </div>
       <div
         id="skills"
-        className="flex flex-col items-center justify-center text-center min-h-screen h-fit m-5 gap-7 lg:p-10"
+        className="flex mt-20 flex-col items-center justify-center text-center min-h-screen h-fit gap-7 xl:gap-24"
       >
         <Title text="Skills" />
-        <div className="flex flex-col items-center justify-center gap-7 lg:flex-row">
+        <div className="flex w-5/6 flex-col items-center justify-center gap-7 lg:flex-row lg:items-stretch xl:gap-24">
           <Skillcard title="Professional skills">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)] text-left text-sm">
               {professional.map((skill) => (
@@ -206,11 +208,11 @@ export default function Home() {
       </div>
       <div
         id="experience"
-        className="flex flex-col items-center justify-center text-center min-h-screen h-fit mt-24 gap-7 lg:p-10"
+        className="flex flex-col mt-20 items-center justify-center text-center min-h-screen h-fit gap-7 xl:gap-24"
       >
         <Title text="Work and education" />
-        <div className="flex flex-col items-stretch gap-6 lg:flex-row">
-          <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col w-5/6 items-stretch gap-6 lg:flex-row xl:justify-evenly ">
+          <div className="flex flex-col items-center gap-4 lg:w-1/2">
             <Subtitle text="Work" />
             {work.map((job) => (
               <ExperienceCard
@@ -222,7 +224,7 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-4 lg:w-1/2">
             <Subtitle text="Education" />
             {education.map((job) => (
               <ExperienceCard
@@ -244,8 +246,8 @@ export default function Home() {
         <p className="text-lg text-foreground p-3">
           Want to get in touch? Feel free to contact me!
         </p>
-        <div className="flex flex-col items-center justify-center gap-5 w-4/5">
-          <form className="flex flex-col items-center w-4/5">
+        <div className="flex flex-col items-center justify-center gap-5 w-5/6">
+          <form className="flex flex-col items-center w-full">
             <div className="flex flex-col w-full">
               <div className="form-control">
                 <label className="label">

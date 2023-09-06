@@ -8,5 +8,5 @@ export default function Title({ text }: TitleProps) {
 }
 
 export function Subtitle({ text }: TitleProps) {
-  return <h1 className="text-xl font-bold">{text}</h1>;
+  return <h1 className="text-xl font-bold xl:text-3xl">{text}</h1>;
 }
