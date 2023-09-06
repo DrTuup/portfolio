@@ -51,6 +51,7 @@ export default function Home() {
           <Image
             src={memoji}
             alt="memoji"
+            loading="eager"
             className="w-[150px] sm:w-[225px] h-[150px] sm:h-[225px] xl:w-[250px] xl:h-[250px]"
           />
         </div>
