@@ -18,6 +18,7 @@ import {
   tools,
   work,
 } from "@/data";
+import sendEmail from "@/helpers/sendemail";
 
 export default function Home() {
   const calculateAge = () => {
@@ -28,10 +29,6 @@ export default function Home() {
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
     return age;
   };
-
-  function sendMail() {
-    console.log("send mail");
-  }
 
   return (
     <>
@@ -256,6 +253,7 @@ export default function Home() {
                   </span>
                 </label>
                 <input
+                  id="name"
                   type="text"
                   placeholder="Full name"
                   className="input input-bordered input-primary text-foreground"
@@ -268,6 +266,7 @@ export default function Home() {
                   </span>
                 </label>
                 <input
+                  id="email"
                   type="email"
                   placeholder="Email"
                   className="input input-bordered input-primary text-foreground"
@@ -283,12 +282,13 @@ export default function Home() {
               <textarea
                 className="textarea textarea-bordered textarea-primary text-foreground"
                 placeholder="Message"
+                id="message"
               />
             </div>{" "}
           </form>
           <button
             className="outline outline-primary rounded-lg p-2 w-1/4 hover:bg-primary hover:text-background transition-all duration-300"
-            onClick={sendMail}
+            onClick={sendEmail}
           >
             Send
           </button>{" "}
