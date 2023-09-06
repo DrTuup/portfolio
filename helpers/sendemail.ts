@@ -54,7 +54,7 @@ export default function sendEmail() {
     body: JSON.stringify(emaildata),
   });
 
-  alert("Message sent I'll get back to you as soon as possible!");
+  alert("Message sent! I'll get back to you as soon as possible!");
 
   var message = ((
     document.getElementById("message") as HTMLInputElement
