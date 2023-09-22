@@ -4,6 +4,12 @@ export default function sendEmail() {
   var email = (document.getElementById("email") as HTMLInputElement).value;
   var apikey = process.env.NEXT_PUBLIC_API_KEY;
 
+  // validate the email using a REGEX
+  if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
   if (message === "" || name === "" || email === "") {
     alert("Please fill in all fields");
     return;
