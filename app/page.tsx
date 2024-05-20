@@ -257,7 +257,7 @@ export default function Home() {
                   id="name"
                   type="text"
                   placeholder="Full name"
-                  className="input input-bordered input-primary text-foreground"
+                  className="input input-bordered input-primary bg-background text-foreground"
                 />
               </div>{" "}
               <div className="form-control">
@@ -270,7 +270,7 @@ export default function Home() {
                   id="email"
                   type="email"
                   placeholder="Email"
-                  className="input input-bordered input-primary text-foreground"
+                  className="input input-bordered input-primary bg-background text-foreground"
                 />
               </div>
             </div>
@@ -281,7 +281,7 @@ export default function Home() {
                 </span>
               </label>
               <textarea
-                className="textarea textarea-bordered textarea-primary text-foreground"
+                className="textarea textarea-bordered textarea-primary bg-background text-foreground"
                 placeholder="Message"
                 id="message"
               />
