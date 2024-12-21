@@ -74,12 +74,9 @@ export default function Home() {
               In my free time I like to:
             </p>
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
-              {freetime
-                .sort((a, b) => a.length - b.length)
-                .reverse()
-                .map((activity) => (
-                  <ListItem key={activity} text={activity} />
-                ))}
+              {freetime.map((activity) => (
+                <ListItem key={activity} text={activity} />
+              ))}
             </ul>
           </div>
           <Image
@@ -91,10 +88,6 @@ export default function Home() {
             I&apos;m a {calculateAge()} year old Software Engineer from the
             Netherlands. I love to turn ideas into code and I&apos;m always open
             to learn new things.
-            <br />
-            <br />
-            I&apos;m currently studying HBO-ICT at Zuyd University of Applied
-            Sciences.
           </p>
         </div>
       </div>
@@ -104,7 +97,7 @@ export default function Home() {
       >
         <Title text="Skills" />
         <div className="flex w-5/6 flex-col items-center justify-center gap-7 lg:flex-row lg:items-stretch xl:gap-24">
-          <Skillcard title="Professional skills">
+          <Skillcard title="Professional">
             <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)] text-left text-sm">
               {professional.map((skill) => (
                 <div key={skill.title}>
@@ -114,17 +107,17 @@ export default function Home() {
                   <span>
                     <progress
                       key={skill.value}
-                      className="progress progress-primary w-3/5"
+                      className="progress progress-primary w-4/6 mr-5 lg:w-5/6"
                       value={skill.value}
                       max="100"
-                    />{" "}
+                    />
                     {skill.value}%
                   </span>
                 </div>
               ))}
             </ul>
           </Skillcard>
-          <Skillcard title="Development skills">
+          <Skillcard title="Tools">
             <p className="text-lg text-left">Front-end</p>
             <div className="flex flex-wrap gap-2 p-2">
               {frontend.map((skill) => (
@@ -150,56 +143,14 @@ export default function Home() {
 
             <p className="text-left text-lg">Tools</p>
             <div className="flex flex-wrap gap-2 p-2">
-              {tools.map((skill) => (
+              {tools.map((tool) => (
                 <div
-                  key={skill}
+                  key={tool}
                   className="badge badge-md badge-primary badge-outline"
                 >
-                  {skill}
+                  {tool}
                 </div>
               ))}
-            </div>
-          </Skillcard>
-          <Skillcard title="Want to learn">
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-col items-center gap-1 text-foreground">
-                <Image
-                  alt="swift"
-                  width={50}
-                  height={50}
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
-                />
-                Swift
-              </div>
-              <div className="flex justify-center gap-20">
-                <div className="flex flex-col items-center gap-1 text-foreground">
-                  <Image
-                    alt="kunernetes"
-                    width={50}
-                    height={50}
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
-                  />
-                  K8s
-                </div>
-                <div className="flex flex-col items-center gap-1 text-foreground">
-                  <Image
-                    alt="flutter"
-                    width={50}
-                    height={50}
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
-                  />
-                  Flutter
-                </div>
-              </div>
-              <div className="flex flex-col items-center gap-1 text-foreground">
-                <Image
-                  alt="pytorch"
-                  width={50}
-                  height={50}
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"
-                />
-                PyTorch
-              </div>
             </div>
           </Skillcard>
         </div>
@@ -211,25 +162,23 @@ export default function Home() {
         <Title text="Work and education" />
         <div className="flex flex-col w-5/6 items-stretch gap-6 lg:flex-row xl:justify-evenly ">
           <div className="flex flex-col items-center gap-4 lg:w-1/2">
-            <Subtitle text="Work" />
+            <Subtitle text="Work 💼" />
             {work.map((job) => (
               <ExperienceCard
                 key={job.title}
                 title={job.title}
                 time={job.time}
-                description={job.description}
                 tags={job.tags}
               />
             ))}
           </div>
           <div className="flex flex-col items-center gap-4 lg:w-1/2">
-            <Subtitle text="Education" />
+            <Subtitle text="Education 🎓" />
             {education.map((job) => (
               <ExperienceCard
                 key={job.title}
                 title={job.title}
                 time={job.time}
-                description={job.description}
                 tags={job.tags}
               />
             ))}

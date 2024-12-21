@@ -1,9 +1,8 @@
 export const freetime = [
   "Create projects",
+  "Watch football",
   "Play games",
-  "Listen to and make music",
   "Fitness",
-  "Play chess",
 ];
 
 export const frontend = [
@@ -15,14 +14,7 @@ export const frontend = [
   "Splunk",
 ];
 
-export const backend = [
-  "NodeJS",
-  "Python",
-  "JavaScript",
-  ".NET Core",
-  "Splunk",
-  "SQL",
-];
+export const backend = ["NodeJS", "Python", ".NET Core", "Splunk", "Golang"];
 
 export const tools = [
   "Visual Studio (Code)",
@@ -31,6 +23,8 @@ export const tools = [
   "Postman",
   "Jira",
   "UML",
+  "Terraform",
+  "Ansible",
 ];
 
 export const professional = [
@@ -56,31 +50,34 @@ export const tolearn = ["Kubernetes", "Flutter (Dart)", "Swift", "AI/ML"];
 
 export const work = [
   {
-    title: "Student Worker @ Enexis Groep",
+    title: "Cloud Engineer @ Enexis Groep",
     time: "September 2022 - Present",
-    description: "Managing GIS-services using different tools and languages.",
-    tags: ["Python", "Ansible", "Terraform", "Agile Scrum", "Git", "Splunk"],
+    tags: [
+      "Python",
+      "Ansible",
+      "Terraform",
+      "Agile Scrum",
+      "Git",
+      "AWS",
+      "Azure",
+    ],
   },
   {
     title: "Trainee @ Enexis Groep",
     time: "February 2022 - August 2022",
-    description:
-      "Building a Splunk dashboard to monitor the performance from one or more GIS-processes.",
-    tags: ["MAGIK", "Splunk", "Git", "Agile Scrum"],
+    tags: ["Splunk", "Git", "Agile Scrum"],
   },
 ];
 
 export const education = [
   {
     title: "HBO-ICT Software Engineering @ Zuyd University of Applied Sciences",
-    time: "September 2020 - Present",
-    description: "Bachelor of Science (BSc) in Computer Science",
+    time: "September 2020 - November 2024",
     tags: ["C#", "Python", "SQL", "UML", "Git"],
   },
   {
     title: "HAVO @ Bernardinuscollege",
     time: "September 2015 - June 2020",
-    description: "Higher General Secondary Education - Nature & Technology",
-    tags: ["Mathematics B", "Physics", "Chemistry"],
+    tags: ["Mathematics", "Physics", "Chemistry"],
   },
 ];
