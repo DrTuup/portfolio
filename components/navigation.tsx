@@ -25,7 +25,7 @@ export function Navigation() {
   const pathname = usePathname();
   return (
     <div className="w-full flex justify-center align-center fixed bottom-0">
-      <div className="bg-secondary my-8 mx-4 flex flex-row p-1 rounded-full">
+      <div className="my-8 mx-4 flex flex-row p-1 rounded-full backdrop-blur-md">
         {navitems.map((item) => {
           return (
             <a

@@ -1,4 +1,15 @@
+import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Spacer } from "@/components/spacer";
+import { Badge } from "@/components/ui/badge";
+import { cicd, code, tools } from "@/data";
 
 export default function Home() {
   function calcAge() {
@@ -10,20 +21,64 @@ export default function Home() {
     return age;
   }
   return (
-    <div className="max-w-screen w-screen min-h-screen flex flex-col p-5 gap-4">
-      <Image src="/memoji.png" width={120} height={120} alt="memoji" />
-      <h1 className="font-bold text-2xl text-primary">
-        Ruben
-        <br />
-        Claessens
-      </h1>
+    <div className="w-screen min-h-screen flex flex-col p-5 gap-4">
+      <Image
+        loading="eager"
+        src="/memoji.png"
+        width={120}
+        height={120}
+        alt="memoji"
+      />
+      <h1 className="font-bold text-2xl text-primary">Ruben Claessens</h1>
       <h2 className="font-bold w-fit p-2 rounded-md bg-[var(--chart-1)]">
         DevOps Engineer
       </h2>
-      <p className="">
+      <p>
         A {calcAge()} years old <strong>DevOps Engineer</strong> who loves
-        automating everything and turning ideas into code. <br />
+        automating everything and turning ideas into code.
+        <br />
       </p>
+      <p>
+        🚀 Building <strong>apps</strong>, automating workflows with{" "}
+        <strong>CI/CD</strong> and managing <strong>infrastructure</strong> are
+        what I enjoy most - whether for work or as a hobby.
+      </p>
+      <Separator />
+      <h3 className="font-bold">Tech stack</h3>
+      <Card className="p-2 rounded-2xl gap-0">
+        <CardHeader className="p-2">
+          <CardTitle>CI/CD</CardTitle>
+          <CardDescription>CI/CD and automation tools.</CardDescription>
+        </CardHeader>
+        <CardContent className="px-2 flex flex-wrap gap-2">
+          {cicd.map((item) => {
+            return <Badge key={item}>{item}</Badge>;
+          })}
+        </CardContent>
+      </Card>
+      <Card className="p-2 rounded-2xl gap-0">
+        <CardHeader className="p-2">
+          <CardTitle>Code</CardTitle>
+          <CardDescription>Languages and frameworks.</CardDescription>
+        </CardHeader>
+        <CardContent className="px-2 flex flex-wrap gap-2">
+          {code.map((item) => {
+            return <Badge key={item}>{item}</Badge>;
+          })}
+        </CardContent>
+      </Card>
+      <Card className="p-2 rounded-2xl gap-0">
+        <CardHeader className="p-2">
+          <CardTitle>Tools</CardTitle>
+          <CardDescription>Project management tools.</CardDescription>
+        </CardHeader>
+        <CardContent className="px-2 flex flex-wrap gap-2">
+          {tools.map((item) => {
+            return <Badge key={item}>{item}</Badge>;
+          })}
+        </CardContent>
+      </Card>
+      <Spacer />
     </div>
   );
 }
