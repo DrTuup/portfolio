@@ -24,13 +24,15 @@ const navitems: NavItem[] = [
 export function Navigation() {
   const pathname = usePathname();
   return (
-    <div className="w-full flex justify-center align-center fixed bottom-0">
-      <div className="my-8 mx-4 flex flex-row p-1 rounded-full backdrop-blur-md">
+    <div className="w-full flex justify-self-center fixed bottom-0">
+      <div className="w-fit mx-4 my-8 flex flex-row p-1 rounded-full backdrop-blur-md bg-foreground/4">
         {navitems.map((item) => {
           return (
             <a
               className={`text-sm font-bold rounded-full p-2 ${
-                pathname === item.href ? `outline outline-[var(--chart-1)]` : ``
+                pathname === item.href
+                  ? `bg-gradient-to-br text-transparent bg-clip-text from-chart-1 to-[#EAEAEA]`
+                  : ``
               }`}
               key={item.title}
               href={item.href}

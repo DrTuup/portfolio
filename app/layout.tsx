@@ -31,12 +31,14 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-          <Navigation />
+          <main className="w-screen min-h-screen flex flex-col p-5 gap-4 bg-[#1A1A1A] text-[#EAEAEA]">
+            {children}
+            <Navigation />
+          </main>
         </ThemeProvider>
       </body>
     </html>

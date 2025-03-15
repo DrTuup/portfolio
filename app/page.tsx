@@ -2,13 +2,7 @@
 
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -19,8 +13,26 @@ import {
 
 import Autoplay from "embla-carousel-autoplay";
 import { Spacer } from "@/components/spacer";
-import { Badge } from "@/components/ui/badge";
 import { cicd, code, freetime, tools } from "@/data";
+import { TechStackCard, TechStackCardProps } from "@/components/card";
+
+const techStackCards: TechStackCardProps[] = [
+  {
+    title: "CI/CD",
+    subtitle: "CI/CD and automation tools",
+    tags: cicd,
+  },
+  {
+    title: "Code",
+    subtitle: "Languages and frameworks",
+    tags: code,
+  },
+  {
+    title: "Tools",
+    subtitle: "Project management tools",
+    tags: tools,
+  },
+];
 
 export default function Home() {
   function calcAge() {
@@ -32,7 +44,7 @@ export default function Home() {
     return age;
   }
   return (
-    <div className="w-screen min-h-screen flex flex-col p-5 gap-4">
+    <>
       <Image
         loading="eager"
         src="/memoji.png"
@@ -40,9 +52,9 @@ export default function Home() {
         height={120}
         alt="memoji"
       />
-      <h1 className="font-bold text-2xl text-primary">Ruben Claessens</h1>
-      <h2 className="font-bold w-fit p-2 rounded-md bg-[var(--chart-1)]">
-        DevOps Engineer
+      <h1 className="font-bold text-xl">Ruben Claessens</h1>
+      <h2 className="font-extrabold text-5xl pb-1 w-fit text-transparent bg-clip-text bg-gradient-to-br from-chart-1 to-[#EAEAEA]">
+        DevOps <br /> Engineer
       </h2>
       <p>
         A {calcAge()} years old <strong>DevOps Engineer</strong> who loves
@@ -56,39 +68,18 @@ export default function Home() {
       </p>
       <Separator />
       <h3 className="font-bold">Tech stack</h3>
-      <Card className="p-2 rounded-2xl gap-0">
-        <CardHeader className="p-2">
-          <CardTitle>CI/CD</CardTitle>
-          <CardDescription>CI/CD and automation tools</CardDescription>
-        </CardHeader>
-        <CardContent className="px-2 flex flex-wrap gap-2">
-          {cicd.map((item) => {
-            return <Badge key={item}>{item}</Badge>;
-          })}
-        </CardContent>
-      </Card>
-      <Card className="p-2 rounded-2xl gap-0">
-        <CardHeader className="p-2">
-          <CardTitle>Code</CardTitle>
-          <CardDescription>Languages and frameworks</CardDescription>
-        </CardHeader>
-        <CardContent className="px-2 flex flex-wrap gap-2">
-          {code.map((item) => {
-            return <Badge key={item}>{item}</Badge>;
-          })}
-        </CardContent>
-      </Card>
-      <Card className="p-2 rounded-2xl gap-0">
-        <CardHeader className="p-2">
-          <CardTitle>Tools</CardTitle>
-          <CardDescription>Project management tools</CardDescription>
-        </CardHeader>
-        <CardContent className="px-2 flex flex-wrap gap-2">
-          {tools.map((item) => {
-            return <Badge key={item}>{item}</Badge>;
-          })}
-        </CardContent>
-      </Card>
+      <div className="flex flex-col gap-7">
+        {techStackCards.map((item) => {
+          return (
+            <TechStackCard
+              key={item.title}
+              title={item.title}
+              subtitle={item.subtitle}
+              tags={item.tags}
+            />
+          );
+        })}
+      </div>
       <Separator />
       <h3 className="font-bold">Free time</h3>
       <Carousel
@@ -99,6 +90,7 @@ export default function Home() {
         plugins={[
           Autoplay({
             delay: 3000,
+            stopOnInteraction: false,
           }),
         ]}
       >
@@ -108,7 +100,7 @@ export default function Home() {
               key={item.title}
               className="md:basis-1/2 lg:basis-1/3 w-15"
             >
-              <Card>
+              <Card className="rounded-2xl">
                 <CardContent className="flex flex-col items-center justify-center p-0">
                   <CardTitle className="text-xl">{item.title}</CardTitle>
                   {<item.icon size={60}></item.icon>}
@@ -122,6 +114,6 @@ export default function Home() {
       </Carousel>
 
       <Spacer />
-    </div>
+    </>
   );
 }
