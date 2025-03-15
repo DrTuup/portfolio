@@ -1,3 +1,11 @@
+import {
+  DumbbellIcon,
+  Gamepad2Icon,
+  LaptopIcon,
+  LucideIcon,
+  Volleyball,
+} from "lucide-react";
+
 export const cicd: string[] = [
   "Terraform",
   "OpenTofu",
@@ -16,3 +24,22 @@ export const code: string[] = [
 ];
 
 export const tools: string[] = ["VS Code", "Git", "Postman", "Jira", "UML"];
+
+export const freetime: { title: string; icon: LucideIcon }[] = [
+  {
+    title: "Play games",
+    icon: Gamepad2Icon,
+  },
+  {
+    title: "Build projects",
+    icon: LaptopIcon,
+  },
+  {
+    title: "Fitness",
+    icon: DumbbellIcon,
+  },
+  {
+    title: "Watch football",
+    icon: Volleyball,
+  },
+];
