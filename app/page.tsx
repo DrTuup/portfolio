@@ -54,7 +54,9 @@ export default function Home() {
       />
       <h1 className="font-bold text-xl">Ruben Claessens</h1>
       <h2 className="font-extrabold text-5xl pb-1 w-fit text-transparent bg-clip-text bg-gradient-to-br from-chart-1 to-[#EAEAEA]">
-        DevOps <br /> Engineer
+        DevOps
+        <br />
+        Engineer
       </h2>
       <p>
         A {calcAge()} years old <strong>DevOps Engineer</strong> who loves
