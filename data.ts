@@ -5,7 +5,7 @@ import {
   LucideIcon,
   Volleyball,
 } from "lucide-react";
-import { ExperienceCardProps } from "./components/card";
+import { ExperienceCardProps, ProjectCardProps } from "./components/card";
 
 export const cicd: string[] = [
   "Terraform",
@@ -79,5 +79,22 @@ export const work: ExperienceCardProps[] = [
       "Azure",
       "GitLab CI/CD",
     ],
+  },
+];
+
+export const projects: ProjectCardProps[] = [
+  {
+    title: "rubenclaessens.nl",
+    description: "A website about who I am and what I do",
+    link: "https://rubenclaessens.nl",
+    repo: "https://github.com/drtuup/portfolio",
+    tags: ["Next.JS", "Vercel", "TailwindCSS", "Shadcn/ui"],
+  },
+  {
+    title: "kilometerweter",
+    description: "A very small project for monitoring the kilometers I drive",
+    link: "",
+    repo: "https://github.com/DrTuup/kilometerweter-frontend",
+    tags: ["Next.JS", "Golang", "Docker", "GitHub Actions", "Postgresql"],
   },
 ];
