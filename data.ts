@@ -5,6 +5,7 @@ import {
   LucideIcon,
   Volleyball,
 } from "lucide-react";
+import { ExperienceCardProps } from "./components/card";
 
 export const cicd: string[] = [
   "Terraform",
@@ -41,5 +42,42 @@ export const freetime: { title: string; icon: LucideIcon }[] = [
   {
     title: "Watch football",
     icon: Volleyball,
+  },
+];
+
+export const education: ExperienceCardProps[] = [
+  {
+    what: "HBO-ICT Software Engineering",
+    where: "Zuyd University of Applied Sciences",
+    when: "Sept. 2020 - Nov. 2024",
+    tags: [".NET Core", "Python", "SQL", "UML", "Git", "GitHub"],
+  },
+  {
+    what: "HAVO",
+    where: "Bernadinuscollege - Middle school",
+    when: "Sept. 2015 - June 2020",
+    tags: ["Mathematics", "Chemistry", "Physics"],
+  },
+];
+
+export const work: ExperienceCardProps[] = [
+  {
+    what: "Intern",
+    where: "Enexis Groep",
+    when: "Feb. 2022 - Aug. 2022",
+    tags: ["Splunk", "Git", "Agile Scrum"],
+  },
+  {
+    what: "Cloud Engineer",
+    where: "Enexis Groep",
+    when: "Sept. 2022 - now",
+    tags: [
+      "Ansible",
+      "Terraform",
+      "Agile Scrum",
+      "AWS",
+      "Azure",
+      "GitLab CI/CD",
+    ],
   },
 ];

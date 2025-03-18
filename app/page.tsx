@@ -68,6 +68,10 @@ export default function Home() {
         <strong>CI/CD</strong> and managing <strong>infrastructure</strong> are
         what I enjoy most - whether for work or as a hobby.
       </p>
+      <p>
+        Scroll down to see what I work with, or visit the other pages to check
+        out my projects and experience.
+      </p>
       <Separator />
       <h3 className="font-bold">Tech stack</h3>
       <div className="flex flex-col gap-7">
