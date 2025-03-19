@@ -1,3 +1,3 @@
 export function Spacer() {
-  return <div className="p-10 w-full"></div>;
+  return <div className="p-8 w-full"></div>;
 }
