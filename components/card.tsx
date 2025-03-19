@@ -19,7 +19,7 @@ export interface TechStackCardProps {
 
 export function TechStackCard({ title, subtitle, tags }: TechStackCardProps) {
   return (
-    <Card className="p-2 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25">
+    <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 md:w-1/3">
       <CardHeader className="p-2">
         <CardTitle className="leading-6">{title}</CardTitle>
         <CardDescription>{subtitle}</CardDescription>

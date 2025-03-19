@@ -7,8 +7,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 import Autoplay from "embla-carousel-autoplay";
@@ -45,36 +43,38 @@ export default function Home() {
   }
   return (
     <>
-      <Image
-        loading="eager"
-        src="/memoji.png"
-        width={120}
-        height={120}
-        alt="memoji"
-      />
-      <h1 className="font-bold text-xl">Ruben Claessens</h1>
-      <h2 className="font-extrabold text-5xl pb-1 w-fit text-transparent bg-clip-text bg-gradient-to-br from-chart-1 to-[#EAEAEA]">
-        DevOps
-        <br />
-        Engineer
-      </h2>
-      <p>
-        A {calcAge()} years old <strong>DevOps Engineer</strong> who loves
-        automating everything and turning ideas into code.
-        <br />
-      </p>
-      <p>
-        🚀 Building <strong>apps</strong>, automating workflows with{" "}
-        <strong>CI/CD</strong> and managing <strong>infrastructure</strong> are
-        what I enjoy most - whether for work or as a hobby.
-      </p>
-      <p>
-        Scroll down to see what I work with, or visit the other pages to check
-        out my projects and experience.
-      </p>
-      <Separator />
-      <h3 className="font-bold">Tech stack</h3>
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col gap-4 md:w-8/12">
+        <Image
+          loading="eager"
+          src="/memoji.png"
+          width={120}
+          height={120}
+          alt="memoji"
+        />
+        <h1 className="font-bold text-xl">Ruben Claessens</h1>
+        <h2 className="font-extrabold text-5xl pb-1 w-fit text-transparent bg-clip-text bg-gradient-to-br from-chart-1 to-[#EAEAEA]">
+          DevOps
+          <br />
+          Engineer
+        </h2>
+        <p>
+          A {calcAge()} years old <strong>DevOps Engineer</strong> who loves
+          automating everything and turning ideas into code.
+          <br />
+        </p>
+        <p>
+          🚀 Building <strong>apps</strong>, automating workflows with{" "}
+          <strong>CI/CD</strong> and managing <strong>infrastructure</strong>{" "}
+          are what I enjoy most - whether for work or as a hobby.
+        </p>
+        <p>
+          Scroll down to see what I work with, or visit the other pages to check
+          out my projects and experience.
+        </p>
+        <Separator />
+      </div>
+      <h3 className="font-bold md:text-lg">Tech stack</h3>
+      <div className="flex flex-col gap-7 md:flex-row md:justify-center">
         {techStackCards.map((item) => {
           return (
             <TechStackCard
@@ -86,10 +86,10 @@ export default function Home() {
           );
         })}
       </div>
-      <Separator />
-      <h3 className="font-bold">Free time</h3>
+      <Separator className="m-2" />
+      <h3 className="font-bold md:text-lg">Free time</h3>
       <Carousel
-        className="self-center"
+        className="self-center md:w-full"
         opts={{
           loop: true,
         }}
@@ -104,7 +104,7 @@ export default function Home() {
           {freetime.map((item) => (
             <CarouselItem
               key={item.title}
-              className="md:basis-1/2 lg:basis-1/3 w-15"
+              className="md:basis-1/3 lg:basis-1/3"
             >
               <Card className="rounded-2xl">
                 <CardContent className="flex flex-col items-center justify-center p-0">
@@ -115,8 +115,6 @@ export default function Home() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="border-none" />
-        <CarouselNext className="border-none" />
       </Carousel>
 
       <Spacer />

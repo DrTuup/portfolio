@@ -24,8 +24,8 @@ const navitems: NavItem[] = [
 export function Navigation() {
   const pathname = usePathname();
   return (
-    <div className="w-full flex justify-self-center fixed bottom-0">
-      <div className="w-fit mx-4 my-8 flex flex-row p-1 rounded-full backdrop-blur-lg bg-foreground/4">
+    <div className="fixed bottom-5 left-1/2 -translate-x-1/2">
+      <div className="flex flex-row p-1 rounded-full backdrop-blur-lg bg-foreground/4">
         {navitems.map((item) => {
           return (
             <a
