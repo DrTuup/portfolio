@@ -166,7 +166,7 @@ export default function Contact() {
               onExpired={handleExpired}
             />
             <span className="flex flex-row items-center justify-between basis-full">
-              <Button type="submit" className={`${isVerified} ? "" : disabled`}>
+              <Button type="submit" disabled={!isVerified}>
                 Submit
               </Button>
               <Button
