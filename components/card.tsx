@@ -51,7 +51,7 @@ export function ExperienceCard({
   tags,
 }: ExperienceCardProps) {
   return (
-    <Card className="p-2 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25">
+    <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 md:w-1/2">
       <CardHeader className="p-2">
         <span className="flex flex-row gap-1">
           <CardTitle className="leading-6">{what}</CardTitle>
@@ -90,7 +90,7 @@ export function ProjectCard({
   tags,
 }: ProjectCardProps) {
   return (
-    <Card className="p-2 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 relative">
+    <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 relative md:w-full">
       <CardHeader className="p-2">
         <span className="flex flex-row gap-1">
           <CardTitle className="leading-6">{title}</CardTitle>

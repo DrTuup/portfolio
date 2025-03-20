@@ -19,6 +19,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Spacer } from "@/components/spacer";
+import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 
 const formSchema = z.object({
   name: z
@@ -74,9 +76,7 @@ export default function Contact() {
                 <FormControl>
                   <Input placeholder="John Appleseed" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
+                <FormDescription>Your name.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -104,9 +104,8 @@ export default function Contact() {
               <FormItem>
                 <FormLabel>Message</FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
                     placeholder="Hello there!"
-                    type="text"
                     minLength={2}
                     maxLength={280}
                     {...field}
@@ -124,7 +123,21 @@ export default function Contact() {
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <span className="flex flex-row items-center justify-between basis-full">
+            <Button type="submit">Submit</Button>
+            <Button
+              onClick={() => open("https://linkedin.com/in/ruben-claessens")}
+            >
+              <Image
+                src="/linkedin.png"
+                alt="linkedin logo"
+                loading="eager"
+                width={30}
+                height={30}
+              />
+              Connect on LinkedIn
+            </Button>
+          </span>
         </form>
       </Form>
       <Spacer />

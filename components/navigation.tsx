@@ -29,7 +29,7 @@ export function Navigation() {
         {navitems.map((item) => {
           return (
             <a
-              className={`text-sm font-bold rounded-full p-2 ${
+              className={`text-sm md:text-lg font-bold rounded-full p-2 md:p-3 ${
                 pathname === item.href
                   ? `bg-gradient-to-br text-transparent bg-clip-text from-chart-1 to-[#EAEAEA]`
                   : ``

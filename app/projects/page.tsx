@@ -10,18 +10,20 @@ export default function Projects() {
       <Separator />
       <SubTitle text="Building & Creating" />
       <Separator />
-      {projects.map((project, index) => {
-        return (
-          <ProjectCard
-            key={index}
-            title={project.title}
-            description={project.description}
-            link={project.link}
-            repo={project.repo}
-            tags={project.tags}
-          />
-        );
-      })}
+      <div className="flex flex-col gap-4 w-full">
+        {projects.map((project, index) => {
+          return (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              link={project.link}
+              repo={project.repo}
+              tags={project.tags}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }

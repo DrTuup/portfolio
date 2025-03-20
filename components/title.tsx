@@ -11,5 +11,5 @@ export function GradientTitle({ text }: TitleProps) {
 }
 
 export function SubTitle({ text }: TitleProps) {
-  return <h3 className="w-full text-center">{text}</h3>;
+  return <h3 className="w-full text-center md:text-xl">{text}</h3>;
 }

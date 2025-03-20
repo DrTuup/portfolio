@@ -35,7 +35,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="w-screen min-h-screen flex flex-col p-5 gap-4 bg-[#1A1A1A] text-[#EAEAEA] items-center">
+          <main className="w-screen min-h-screen flex flex-col p-5 md:px-10 gap-4 bg-[#1A1A1A] text-[#EAEAEA] items-center">
             {children}
             <Navigation />
           </main>

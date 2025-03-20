@@ -11,31 +11,35 @@ export default function Experience() {
       <Separator />
       <SubTitle text="Learning & Doing" />
       <Separator />
-      <h3 className="font-bold">🎓 Education</h3>
-      {education.map((educationitem) => {
-        return (
-          <ExperienceCard
-            key={educationitem.what}
-            what={educationitem.what}
-            where={educationitem.where}
-            when={educationitem.when}
-            tags={educationitem.tags}
-          />
-        );
-      })}
-      <Separator />
-      <h3 className="font-bold">💼 Work</h3>
-      {work.map((workitem) => {
-        return (
-          <ExperienceCard
-            key={workitem.what}
-            what={workitem.what}
-            where={workitem.where}
-            when={workitem.when}
-            tags={workitem.tags}
-          />
-        );
-      })}
+      <h3 className="font-bold md:text-xl">🎓 Education</h3>
+      <div className="flex flex-row gap-4">
+        {education.map((educationitem) => {
+          return (
+            <ExperienceCard
+              key={educationitem.what}
+              what={educationitem.what}
+              where={educationitem.where}
+              when={educationitem.when}
+              tags={educationitem.tags}
+            />
+          );
+        })}
+      </div>
+      <Separator className="md:m-2" />
+      <h3 className="font-bold md:text-xl">💼 Work</h3>
+      <div className="flex flex-row gap-4">
+        {work.map((workitem) => {
+          return (
+            <ExperienceCard
+              key={workitem.what}
+              what={workitem.what}
+              where={workitem.where}
+              when={workitem.when}
+              tags={workitem.tags}
+            />
+          );
+        })}
+      </div>
       <Spacer />
     </>
   );
