@@ -1,7 +1,6 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import ReCAPTCHA from "react-google-recaptcha";
 
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,7 +18,7 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Spacer } from "@/components/spacer";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
@@ -55,36 +54,6 @@ export default function Contact() {
       message: "",
     },
   });
-
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [isVerified, setIsVerified] = useState(false);
-
-  async function handleCaptchaSubmission(token: string | null) {
-    try {
-      if (token) {
-        await fetch("/api", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ token }),
-        });
-        setIsVerified(true);
-      }
-    } catch (e) {
-      setIsVerified(false);
-      console.warn(e);
-    }
-  }
-
-  const handleChange = (token: string | null) => {
-    handleCaptchaSubmission(token);
-  };
-
-  function handleExpired() {
-    setIsVerified(false);
-  }
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
@@ -159,16 +128,8 @@ export default function Contact() {
                 </FormItem>
               )}
             />
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-              ref={recaptchaRef}
-              onChange={handleChange}
-              onExpired={handleExpired}
-            />
             <span className="flex flex-row items-center justify-between basis-full">
-              <Button type="submit" disabled={!isVerified}>
-                Submit
-              </Button>
+              <Button type="submit">Submit</Button>
               <Button
                 onClick={() => open("https://linkedin.com/in/ruben-claessens")}
               >
