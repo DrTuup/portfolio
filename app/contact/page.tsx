@@ -61,85 +61,90 @@ export default function Contact() {
 
   return (
     <>
-      <GradientTitle text="Contact" />
-      <Separator />
-      <SubTitle text={`Let's connect!`} />
-      <Separator />
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="John Appleseed" {...field} />
-                </FormControl>
-                <FormDescription>Your name.</FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder="johnappleseed@example.com" {...field} />
-                </FormControl>
-                <FormDescription>
-                  The email address you want to be contacted on.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Hello there!"
-                    minLength={2}
-                    maxLength={280}
-                    {...field}
-                    onChange={(e) => {
-                      field.onChange(e);
-                      setMessageChars(e.target.value.length);
-                    }}
-                  />
-                </FormControl>
-                <FormDescription className="w-full flex justify-between">
-                  Type your message here <span>{messageChars}/280</span>
-                </FormDescription>
-                <FormDescription className="justify-self-end"></FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <span className="flex flex-row items-center justify-between basis-full">
-            <Button type="submit">Submit</Button>
-            <Button
-              onClick={() => open("https://linkedin.com/in/ruben-claessens")}
-            >
-              <Image
-                src="/linkedin.png"
-                alt="linkedin logo"
-                loading="eager"
-                width={30}
-                height={30}
-              />
-              Connect on LinkedIn
-            </Button>
-          </span>
-        </form>
-      </Form>
+      <div className="flex flex-col w-full md:w-8/12 gap-4">
+        <GradientTitle text="Contact" />
+        <Separator />
+        <SubTitle text={`Let's connect!`} />
+        <Separator />
+      </div>
+      <div className="flex flex-col md:w-8/12 gap-4">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="John Appleseed" {...field} />
+                  </FormControl>
+                  <FormDescription>Your name.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="johnappleseed@example.com" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    The email address you want to be contacted on.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Message</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Hello there!"
+                      minLength={2}
+                      maxLength={280}
+                      {...field}
+                      onChange={(e) => {
+                        field.onChange(e);
+                        setMessageChars(e.target.value.length);
+                      }}
+                    />
+                  </FormControl>
+                  <FormDescription className="w-full flex justify-between">
+                    Type your message here <span>{messageChars}/280</span>
+                  </FormDescription>
+                  <FormDescription className="justify-self-end"></FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <span className="flex flex-row items-center justify-between basis-full">
+              <Button type="submit">Submit</Button>
+              <Button
+                onClick={() => open("https://linkedin.com/in/ruben-claessens")}
+              >
+                <Image
+                  src="/linkedin.png"
+                  alt="linkedin logo"
+                  loading="eager"
+                  width={30}
+                  height={30}
+                />
+                Connect on LinkedIn
+              </Button>
+            </span>
+          </form>
+        </Form>
+      </div>
+
       <Spacer />
     </>
   );

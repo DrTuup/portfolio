@@ -7,12 +7,14 @@ import { education, work } from "@/data";
 export default function Experience() {
   return (
     <>
-      <GradientTitle text="Experience" />
-      <Separator />
-      <SubTitle text="Learning & Doing" />
-      <Separator />
+      <div className="flex flex-col w-full md:w-8/12 gap-4">
+        <GradientTitle text="Experience" />
+        <Separator />
+        <SubTitle text="Learning & Doing" />
+        <Separator />
+      </div>
       <h3 className="font-bold md:text-xl">🎓 Education</h3>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-col md:flex-row gap-4 w-full md:w-8/12">
         {education.map((educationitem) => {
           return (
             <ExperienceCard
@@ -25,9 +27,11 @@ export default function Experience() {
           );
         })}
       </div>
-      <Separator className="md:m-2" />
+      <div className="md:w-8/12">
+        <Separator className="md:m-2 w-8/12" />
+      </div>
       <h3 className="font-bold md:text-xl">💼 Work</h3>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-col md:flex-row gap-4 w-full md:w-8/12">
         {work.map((workitem) => {
           return (
             <ExperienceCard

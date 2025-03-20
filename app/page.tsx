@@ -43,7 +43,7 @@ export default function Home() {
   }
   return (
     <>
-      <div className="flex flex-col gap-4 md:w-8/12">
+      <div className="flex flex-col gap-4 md:w-8/12 xl:w-6/12">
         <Image
           loading="eager"
           src="/memoji.png"
@@ -51,30 +51,30 @@ export default function Home() {
           height={120}
           alt="memoji"
         />
-        <h1 className="font-bold text-xl">Ruben Claessens</h1>
-        <h2 className="font-extrabold text-5xl pb-1 w-fit text-transparent bg-clip-text bg-gradient-to-br from-chart-1 to-[#EAEAEA]">
+        <h1 className="font-bold text-xl xl:text-2xl">Ruben Claessens</h1>
+        <h2 className="font-extrabold text-5xl xl:text-7xl pb-1 w-fit text-transparent bg-clip-text bg-gradient-to-br from-chart-1 to-[#EAEAEA]">
           Cloud
           <br />
           Engineer
         </h2>
-        <p>
+        <p className="xl:text-xl">
           A {calcAge()} years old <strong>Cloud Engineer</strong> who loves
           automating everything and turning ideas into code.
           <br />
         </p>
-        <p>
+        <p className="xl:text-xl">
           🚀 Building <strong>apps</strong>, automating workflows with{" "}
           <strong>CI/CD</strong> and managing <strong>infrastructure</strong>{" "}
           are what I enjoy most - whether for work or as a hobby.
         </p>
-        <p>
+        <p className="xl:text-xl">
           Scroll down to see what I work with, or visit the other pages to check
           out my projects and experience.
         </p>
         <Separator />
       </div>
-      <h3 className="font-bold md:text-lg">Tech stack</h3>
-      <div className="flex flex-col gap-7 md:flex-row md:justify-center">
+      <h3 className="font-bold md:text-lg xl:text-2xl">Tech stack</h3>
+      <div className="flex flex-col gap-7 md:flex-row md:justify-center xl:w-10/12">
         {techStackCards.map((item) => {
           return (
             <TechStackCard
@@ -86,10 +86,12 @@ export default function Home() {
           );
         })}
       </div>
-      <Separator className="m-2" />
-      <h3 className="font-bold md:text-lg">Free time</h3>
+      <div className="w-full xl:w-10/12">
+        <Separator className="my-4" />
+      </div>
+      <h3 className="font-bold md:text-lg xl:text-2xl">Free time</h3>
       <Carousel
-        className="self-center md:w-full"
+        className="self-center md:w-full xl:w-10/12"
         opts={{
           loop: true,
         }}
@@ -104,7 +106,7 @@ export default function Home() {
           {freetime.map((item) => (
             <CarouselItem
               key={item.title}
-              className="md:basis-1/3 lg:basis-1/3"
+              className="md:basis-1/3 lg:basis-1/3 xl:basis-1/4"
             >
               <Card className="rounded-2xl">
                 <CardContent className="flex flex-col items-center justify-center p-0">

@@ -51,7 +51,7 @@ export function ExperienceCard({
   tags,
 }: ExperienceCardProps) {
   return (
-    <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 md:w-1/2">
+    <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 w-full md:w-1/2">
       <CardHeader className="p-2">
         <span className="flex flex-row gap-1">
           <CardTitle className="leading-6">{what}</CardTitle>
