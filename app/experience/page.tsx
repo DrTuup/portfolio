@@ -1,4 +1,5 @@
 import { ExperienceCard } from "@/components/card";
+import { Header } from "@/components/header";
 import { Spacer } from "@/components/spacer";
 import { GradientTitle, SubTitle } from "@/components/title";
 import { Separator } from "@/components/ui/separator";
@@ -7,12 +8,12 @@ import { education, work } from "@/data";
 export default function Experience() {
   return (
     <>
-      <div className="flex flex-col w-full md:w-8/12 gap-4">
+      <Header>
         <GradientTitle text="Experience" />
         <Separator />
         <SubTitle text="Learning & Doing" />
         <Separator />
-      </div>
+      </Header>
       <h3 className="font-bold md:text-xl">🎓 Education</h3>
       <div className="flex flex-col md:flex-row gap-4 w-full md:w-8/12">
         {education.map((educationitem) => {

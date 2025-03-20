@@ -21,6 +21,7 @@ import { useState } from "react";
 import { Spacer } from "@/components/spacer";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
+import { Header } from "@/components/header";
 
 const formSchema = z.object({
   name: z
@@ -61,13 +62,13 @@ export default function Contact() {
 
   return (
     <>
-      <div className="flex flex-col w-full md:w-8/12 gap-4">
+      <Header>
         <GradientTitle text="Contact" />
         <Separator />
-        <SubTitle text={`Let's connect!`} />
+        <SubTitle text="Let's connect!" />
         <Separator />
-      </div>
-      <div className="flex flex-col md:w-8/12 gap-4">
+      </Header>
+      <div className="flex flex-col w-full md:w-8/12 gap-4">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
