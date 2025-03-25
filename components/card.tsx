@@ -117,7 +117,7 @@ export function ProjectCard({
         <a href={repo} target="_blank" className="absolute bottom-3 right-3">
           <Image
             src="/github-mark-white.png"
-            alt="github logo"
+            alt="github"
             width={25}
             height={25}
           />
