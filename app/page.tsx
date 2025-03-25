@@ -1,250 +1,125 @@
 "use client";
 
-import ArrowDownward from "@mui/icons-material/ArrowDownward";
+import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import memoji from "@/assets/images/memoji.png";
-import me from "@/assets/images/me_square.jpg";
-import ParticleBackground from "@/components/particles";
-import Navbar from "@/components/navbar";
-import ListItem from "@/components/listitem";
-import Title, { Subtitle } from "@/components/title";
-import { Skillcard, ExperienceCard } from "@/components/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
-  backend,
-  education,
-  freetime,
-  frontend,
-  professional,
-  tools,
-  work,
-} from "@/data";
-import sendEmail from "@/helpers/sendemail";
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+
+import Autoplay from "embla-carousel-autoplay";
+import { Spacer } from "@/components/spacer";
+import { cicd, code, freetime, tools } from "@/data";
+import { TechStackCard, TechStackCardProps } from "@/components/card";
+
+const techStackCards: TechStackCardProps[] = [
+  {
+    title: "CI/CD",
+    subtitle: "CI/CD and automation tools",
+    tags: cicd,
+  },
+  {
+    title: "Code",
+    subtitle: "Languages and frameworks",
+    tags: code,
+  },
+  {
+    title: "Tools",
+    subtitle: "Project management tools",
+    tags: tools,
+  },
+];
 
 export default function Home() {
-  const calculateAge = () => {
+  function calcAge() {
     const today = new Date();
     const birthDate = new Date("2002-12-28");
     let age = today.getFullYear() - birthDate.getFullYear();
     const m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
     return age;
-  };
-
+  }
   return (
     <>
-      <Navbar />
-      <div
-        id="home"
-        className="flex flex-col items-center justify-evenly text-center min-h-screen h-fit xl:justify-center"
-      >
-        <div className="flex flex-col items-center gap-7 lg:flex-row xl:gap-52">
-          <div className="flex flex-col gap-7 lg:text-left xl:gap-7">
-            <p className="text-foreground sm:text-2xl xl:text-3xl">
-              Hi there!👋🏻 I&apos;m
-            </p>
-            <Title text="Ruben Claessens" />
-            <p className="text-primary sm:text-2xl">Software Engineer</p>
-            <p className="text-foreground max-w-[25ch] sm:max-w-[30ch] sm:text-2xl">
-              I&apos;m a Software Engineer who loves turning ideas into code.
-            </p>
-          </div>
-          <Image
-            src={memoji}
-            alt="memoji"
-            loading="eager"
-            className="w-[150px] sm:w-[225px] h-[150px] sm:h-[225px] xl:w-[250px] xl:h-[250px]"
-          />
-        </div>
-        <div className="flex flex-col items-center xl:absolute xl:bottom-20">
-          <p className="text-foreground sm:text-2xl">Get to know me!</p>
-          <ArrowDownward
-            fontSize="large"
-            className="text-primary animate-bounce-arrow"
-          />
-        </div>
-      </div>
-      <div
-        id="about"
-        className="flex flex-col min-h-screen h-fit items-center justify-center text-center gap-7 xl:gap-24 xl:items-evenly"
-      >
-        <Title text="About me" />
-        <div className="flex flex-col items-center gap-7 lg:flex-row lg:justify-evenly lg:w-full xl:justify-center xl:gap-32">
-          <div>
-            <p className="text-foreground text-xl sm:text-xl">
-              In my free time I like to:
-            </p>
-            <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)]">
-              {freetime.map((activity) => (
-                <ListItem key={activity} text={activity} />
-              ))}
-            </ul>
-          </div>
-          <Image
-            src={me}
-            alt="me"
-            className="rounded-full w-[150px] sm:w-[225px] h-[150px] sm:h-[225px] xl:h-[300px] xl:w-[300px]"
-          />
-          <p className="text-foreground max-w-[30ch] sm:text-xl sm:max-w-[35ch] lg:max-w-[20ch]">
-            I&apos;m a {calculateAge()} year old Software Engineer from the
-            Netherlands. I love to turn ideas into code and I&apos;m always open
-            to learn new things.
-          </p>
-        </div>
-      </div>
-      <div
-        id="skills"
-        className="flex mt-20 flex-col items-center justify-center text-center min-h-screen h-fit gap-7 xl:gap-24"
-      >
-        <Title text="Skills" />
-        <div className="flex w-5/6 flex-col items-center justify-center gap-7 lg:flex-row lg:items-stretch xl:gap-24">
-          <Skillcard title="Professional">
-            <ul className="list-disc list-inside list-image-[url(../assets/images/check-mark.png)] text-left text-sm">
-              {professional.map((skill) => (
-                <div key={skill.title}>
-                  <p key={skill.title} className="my-2 text-lg">
-                    {skill.title}
-                  </p>
-                  <span>
-                    <progress
-                      key={skill.value}
-                      className="progress progress-primary w-4/6 mr-5 lg:w-5/6"
-                      value={skill.value}
-                      max="100"
-                    />
-                    {skill.value}%
-                  </span>
-                </div>
-              ))}
-            </ul>
-          </Skillcard>
-          <Skillcard title="Tools">
-            <p className="text-lg text-left">Front-end</p>
-            <div className="flex flex-wrap gap-2 p-2">
-              {frontend.map((skill) => (
-                <div
-                  key={skill}
-                  className="badge badge-md badge-primary badge-outline"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-            <p className="text-left text-lg">Back-end</p>
-            <div className="flex flex-wrap gap-2 p-2">
-              {backend.map((skill) => (
-                <div
-                  key={skill}
-                  className="badge badge-md badge-primary badge-outline"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-
-            <p className="text-left text-lg">Tools</p>
-            <div className="flex flex-wrap gap-2 p-2">
-              {tools.map((tool) => (
-                <div
-                  key={tool}
-                  className="badge badge-md badge-primary badge-outline"
-                >
-                  {tool}
-                </div>
-              ))}
-            </div>
-          </Skillcard>
-        </div>
-      </div>
-      <div
-        id="experience"
-        className="flex flex-col mt-20 items-center justify-center text-center min-h-screen h-fit gap-7 xl:gap-24"
-      >
-        <Title text="Work and education" />
-        <div className="flex flex-col w-5/6 items-stretch gap-6 lg:flex-row xl:justify-evenly ">
-          <div className="flex flex-col items-center gap-4 lg:w-1/2">
-            <Subtitle text="Work 💼" />
-            {work.map((job) => (
-              <ExperienceCard
-                key={job.title}
-                title={job.title}
-                time={job.time}
-                tags={job.tags}
-              />
-            ))}
-          </div>
-          <div className="flex flex-col items-center gap-4 lg:w-1/2">
-            <Subtitle text="Education 🎓" />
-            {education.map((job) => (
-              <ExperienceCard
-                key={job.title}
-                title={job.title}
-                time={job.time}
-                tags={job.tags}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-      <div
-        id="contact"
-        className="flex flex-col items-center justify-center text-center min-h-screen h-fit m-5"
-      >
-        <Title text="Contact" />
-        <p className="text-lg text-foreground p-3">
-          Want to get in touch? Feel free to contact me!
+      <div className="flex flex-col gap-4 md:w-8/12">
+        <Image
+          loading="eager"
+          src="/memoji.png"
+          width={120}
+          height={120}
+          alt="memoji"
+        />
+        <h1 className="font-bold text-xl xl:text-2xl">Ruben Claessens</h1>
+        <h2 className="font-extrabold text-5xl xl:text-7xl pb-1 w-fit text-transparent bg-clip-text bg-gradient-to-br from-chart-1 to-[#EAEAEA]">
+          Cloud
+          <br />
+          Engineer
+        </h2>
+        <p className="xl:text-xl">
+          A {calcAge()} years old <strong>Cloud Engineer</strong> who loves
+          automating everything and turning ideas into code.
+          <br />
         </p>
-        <div className="flex flex-col items-center justify-center gap-5 w-5/6">
-          <form className="flex flex-col items-center w-full">
-            <div className="flex flex-col w-full">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-foreground">
-                    What is your name?
-                  </span>
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  placeholder="Full name"
-                  className="input input-bordered input-primary bg-background text-foreground"
-                />
-              </div>{" "}
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-foreground">
-                    What is your email?
-                  </span>
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Email"
-                  className="input input-bordered input-primary bg-background text-foreground"
-                />
-              </div>
-            </div>
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text text-foreground">
-                  Leave a message!
-                </span>
-              </label>
-              <textarea
-                className="textarea textarea-bordered textarea-primary bg-background text-foreground"
-                placeholder="Message"
-                id="message"
-              />
-            </div>{" "}
-          </form>
-          <button
-            className="outline outline-primary rounded-lg p-2 w-1/4 hover:bg-primary hover:text-background transition-all duration-300"
-            onClick={sendEmail}
-          >
-            Send
-          </button>{" "}
-        </div>
+        <p className="xl:text-xl">
+          🚀 Building <strong>apps</strong>, automating workflows with{" "}
+          <strong>CI/CD</strong> and managing <strong>infrastructure</strong>{" "}
+          are what I enjoy most - whether for work or as a hobby.
+        </p>
+        <p className="xl:text-xl">
+          Scroll down to see what I work with, or visit the other pages to check
+          out my projects and experience.
+        </p>
+        <Separator />
       </div>
-      <ParticleBackground />
+      <h3 className="font-bold md:text-lg xl:text-2xl">Tech stack</h3>
+      <div className="flex flex-col gap-7 md:flex-row md:justify-center md:w-8/12">
+        {techStackCards.map((item) => {
+          return (
+            <TechStackCard
+              key={item.title}
+              title={item.title}
+              subtitle={item.subtitle}
+              tags={item.tags}
+            />
+          );
+        })}
+      </div>
+      <div className="w-full xl:w-8/12">
+        <Separator className="my-4" />
+      </div>
+      <h3 className="font-bold md:text-lg xl:text-2xl">Free time</h3>
+      <Carousel
+        className="self-center md:w-full xl:w-8/12"
+        opts={{
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 3000,
+            stopOnInteraction: false,
+          }),
+        ]}
+      >
+        <CarouselContent>
+          {freetime.map((item) => (
+            <CarouselItem
+              key={item.title}
+              className="md:basis-1/3 lg:basis-1/3 xl:basis-1/4"
+            >
+              <Card className="rounded-2xl">
+                <CardContent className="flex flex-col items-center justify-center p-0">
+                  <CardTitle className="text-xl">{item.title}</CardTitle>
+                  {<item.icon size={60}></item.icon>}
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+
+      <Spacer />
     </>
   );
 }

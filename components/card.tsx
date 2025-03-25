@@ -1,38 +1,128 @@
-interface SkillcardProps {
+"use client";
+
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { ExternalLinkIcon } from "lucide-react";
+import Image from "next/image";
+
+export interface TechStackCardProps {
   title: string;
-  children?: React.ReactNode;
+  subtitle: string;
+  tags: string[];
 }
 
-export function Skillcard({ title, children }: SkillcardProps) {
+export function TechStackCard({ title, subtitle, tags }: TechStackCardProps) {
   return (
-    <div className="bg-background w-full sm:w-fit md:w-full lg:w-1/2 rounded-md shadow-card-shadow p-8">
-      <h1 className="text-2xl font-bold mb-5 text-foreground">{title}</h1>
-      {children}
-    </div>
+    <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 md:w-1/3">
+      <CardHeader className="p-2">
+        <CardTitle className="leading-6 xl:text-lg">{title}</CardTitle>
+        <CardDescription className="xl:text-md">{subtitle}</CardDescription>
+      </CardHeader>
+      <CardContent className="px-2 flex flex-wrap gap-3">
+        {tags.map((tag) => {
+          return (
+            <Badge className="rounded-full" key={tag}>
+              {tag}
+            </Badge>
+          );
+        })}
+      </CardContent>
+    </Card>
   );
 }
 
-interface ExperienceCardProps {
-  title: string;
-  time: string;
+export interface ExperienceCardProps {
+  what: string;
+  where: string;
+  when: string;
   tags: string[];
-  children?: React.ReactNode;
 }
 
-export function ExperienceCard({ title, time, tags }: ExperienceCardProps) {
+export function ExperienceCard({
+  what,
+  where,
+  when,
+  tags,
+}: ExperienceCardProps) {
   return (
-    <div className="flex flex-grow flex-col bg-background rounded-md shadow-card-shadow p-5 w-full xl:w-4/5">
-      <h1 className="font-bold text-xl text-foreground lg:text-base xl:text-lg">
-        {title}
-      </h1>
-      <p className="my-2">{time}</p>
-      <div className="flex flex-wrap gap-2 mt-2 justify-center">
-        {tags.map((tag) => (
-          <div key={tag} className="badge badge-lg badge-primary badge-outline">
-            {tag}
-          </div>
-        ))}
-      </div>
-    </div>
+    <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 w-full md:w-1/2">
+      <CardHeader className="p-2">
+        <span className="flex flex-row gap-1">
+          <CardTitle className="leading-6 xl:text-lg">{what}</CardTitle>
+        </span>
+        <CardDescription className="xl:text-base">📍 {where}</CardDescription>
+        <CardDescription className="xl:text-base">
+          {when.includes("now") ? "⏳" : "⌛"} {when}
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="px-2 flex flex-wrap gap-3">
+        {tags.map((tag) => {
+          return (
+            <Badge className="rounded-full" key={tag}>
+              {tag}
+            </Badge>
+          );
+        })}
+      </CardContent>
+    </Card>
+  );
+}
+
+export interface ProjectCardProps {
+  title: string;
+  description: string;
+  link: string;
+  repo: string;
+  tags: string[];
+}
+
+export function ProjectCard({
+  title,
+  description,
+  link,
+  repo,
+  tags,
+}: ProjectCardProps) {
+  return (
+    <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 relative md:w-full">
+      <CardHeader className="p-2">
+        <span className="flex flex-row gap-1">
+          <CardTitle className="leading-6 xl:text-xl">{title}</CardTitle>
+        </span>
+        <CardDescription className="xl:text-base">
+          {description}
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="px-2 flex flex-wrap gap-3">
+        {tags.map((tag) => {
+          return (
+            <Badge className="rounded-full" key={tag}>
+              {tag}
+            </Badge>
+          );
+        })}
+      </CardContent>
+      {link != "" ? (
+        <a href={link} target="_blank" className="absolute top-3 right-3">
+          <ExternalLinkIcon />
+        </a>
+      ) : null}
+      {repo != "" ? (
+        <a href={repo} target="_blank" className="absolute bottom-3 right-3">
+          <Image
+            src="/github-mark-white.png"
+            alt="github"
+            width={25}
+            height={25}
+          />
+        </a>
+      ) : null}
+    </Card>
   );
 }

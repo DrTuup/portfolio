@@ -1,83 +1,100 @@
-export const freetime = [
-  "Create projects",
-  "Watch football",
-  "Play games",
-  "Fitness",
-];
+import {
+  DumbbellIcon,
+  Gamepad2Icon,
+  LaptopIcon,
+  LucideIcon,
+  Volleyball,
+} from "lucide-react";
+import { ExperienceCardProps, ProjectCardProps } from "./components/card";
 
-export const frontend = [
-  "HTML5",
-  "CSS3",
-  "TailwindCSS",
-  "JavaScript",
-  "NextJS",
-  "Splunk",
-];
-
-export const backend = ["NodeJS", "Python", ".NET Core", "Splunk", "Golang"];
-
-export const tools = [
-  "Visual Studio (Code)",
-  "Git",
-  "GitHub",
-  "Postman",
-  "Jira",
-  "UML",
+export const cicd: string[] = [
   "Terraform",
+  "OpenTofu",
   "Ansible",
+  "GitLab CI/CD",
+  "Github Actions",
 ];
 
-export const professional = [
+export const code: string[] = [
+  "TypeScript",
+  ".NET Core",
+  "Golang",
+  "Next.JS",
+  "TailwindCSS",
+  "Python",
+];
+
+export const tools: string[] = ["VS Code", "Git", "Postman", "Jira", "UML"];
+
+export const freetime: { title: string; icon: LucideIcon }[] = [
   {
-    title: "Communicating",
-    value: 80,
+    title: "Play games",
+    icon: Gamepad2Icon,
   },
   {
-    title: "Leading",
-    value: 70,
+    title: "Build projects",
+    icon: LaptopIcon,
   },
   {
-    title: "Problem solving",
-    value: 90,
+    title: "Fitness",
+    icon: DumbbellIcon,
   },
   {
-    title: "Collaborating",
-    value: 80,
+    title: "Watch football",
+    icon: Volleyball,
   },
 ];
 
-export const tolearn = ["Kubernetes", "Flutter (Dart)", "Swift", "AI/ML"];
-
-export const work = [
+export const education: ExperienceCardProps[] = [
   {
-    title: "Cloud Engineer @ Enexis Groep",
-    time: "September 2022 - Present",
+    what: "HBO-ICT Software Engineering",
+    where: "Zuyd University of Applied Sciences",
+    when: "Sept. 2020 - Nov. 2024",
+    tags: [".NET Core", "Python", "SQL", "UML", "Git", "GitHub"],
+  },
+  {
+    what: "HAVO",
+    where: "Bernadinuscollege - Middle school",
+    when: "Sept. 2015 - June 2020",
+    tags: ["Mathematics", "Chemistry", "Physics"],
+  },
+];
+
+export const work: ExperienceCardProps[] = [
+  {
+    what: "Intern",
+    where: "Enexis Groep",
+    when: "Feb. 2022 - Aug. 2022",
+    tags: ["Splunk", "Git", "Agile Scrum"],
+  },
+  {
+    what: "Cloud Engineer",
+    where: "Enexis Groep",
+    when: "Sept. 2022 - now",
     tags: [
-      "Python",
       "Ansible",
       "Terraform",
       "Agile Scrum",
-      "Git",
       "AWS",
       "Azure",
+      "GitLab CI/CD",
     ],
-  },
-  {
-    title: "Trainee @ Enexis Groep",
-    time: "February 2022 - August 2022",
-    tags: ["Splunk", "Git", "Agile Scrum"],
   },
 ];
 
-export const education = [
+export const projects: ProjectCardProps[] = [
   {
-    title: "HBO-ICT Software Engineering @ Zuyd University of Applied Sciences",
-    time: "September 2020 - November 2024",
-    tags: ["C#", "Python", "SQL", "UML", "Git"],
+    title: "rubenclaessens.nl",
+    description: "A website about who I am and what I do",
+    link: "https://rubenclaessens.nl",
+    repo: "https://github.com/drtuup/portfolio",
+    tags: ["Next.JS", "Vercel", "TailwindCSS", "Shadcn/ui"],
   },
   {
-    title: "HAVO @ Bernardinuscollege",
-    time: "September 2015 - June 2020",
-    tags: ["Mathematics", "Physics", "Chemistry"],
+    title: "kilometerweter",
+    description: "A very small project for monitoring the kilometers I drive",
+    link: "",
+    repo: "https://github.com/DrTuup/kilometerweter-frontend",
+    tags: ["Next.JS", "Golang", "Docker", "GitHub Actions", "Postgresql"],
   },
 ];
