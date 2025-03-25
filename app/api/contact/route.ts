@@ -31,7 +31,8 @@ export async function POST(req: NextRequest) {
       content: message,
       footer: {
         text: `You can mail back to: ${email}`,
-        icon_url: "/memoji.png",
+        icon_url:
+          "https://t3.ftcdn.net/jpg/01/81/00/34/360_F_181003490_CxW4fQ0H3VypIIsPkFGpMDviO8ysWjOZ.jpg",
       },
     };
 
