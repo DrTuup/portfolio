@@ -27,13 +27,16 @@ export async function POST(req: NextRequest) {
 
     // Construct the message payload
     const discordPayload = {
-      username: name,
-      content: message,
-      footer: {
-        text: `You can mail back to: ${email}`,
-        icon_url:
-          "https://t3.ftcdn.net/jpg/01/81/00/34/360_F_181003490_CxW4fQ0H3VypIIsPkFGpMDviO8ysWjOZ.jpg",
-      },
+      embeds: [
+        {
+          title: `New message from ${name}`,
+          description: message,
+          footer: {
+            text: `Email: ${email}`,
+          },
+        },
+      ],
+      username: "Message-bot",
     };
 
     // Send to Discord Webhook

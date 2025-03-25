@@ -147,6 +147,7 @@ export default function Contact() {
               </Button>
               <Button
                 onClick={() => open("https://linkedin.com/in/ruben-claessens")}
+                type="button"
               >
                 <Image
                   src="/linkedin.png"
