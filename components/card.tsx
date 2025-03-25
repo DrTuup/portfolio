@@ -21,8 +21,8 @@ export function TechStackCard({ title, subtitle, tags }: TechStackCardProps) {
   return (
     <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 md:w-1/3">
       <CardHeader className="p-2">
-        <CardTitle className="leading-6">{title}</CardTitle>
-        <CardDescription>{subtitle}</CardDescription>
+        <CardTitle className="leading-6 xl:text-lg">{title}</CardTitle>
+        <CardDescription className="xl:text-md">{subtitle}</CardDescription>
       </CardHeader>
       <CardContent className="px-2 flex flex-wrap gap-3">
         {tags.map((tag) => {
@@ -54,10 +54,10 @@ export function ExperienceCard({
     <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 w-full md:w-1/2">
       <CardHeader className="p-2">
         <span className="flex flex-row gap-1">
-          <CardTitle className="leading-6">{what}</CardTitle>
+          <CardTitle className="leading-6 xl:text-lg">{what}</CardTitle>
         </span>
-        <CardDescription>📍 {where}</CardDescription>
-        <CardDescription>
+        <CardDescription className="xl:text-base">📍 {where}</CardDescription>
+        <CardDescription className="xl:text-base">
           {when.includes("now") ? "⏳" : "⌛"} {when}
         </CardDescription>
       </CardHeader>
@@ -93,9 +93,11 @@ export function ProjectCard({
     <Card className="p-2 pb-4 rounded-2xl gap-0 border-0 shadow-lg shadow-[#EAEAEA]/25 relative md:w-full">
       <CardHeader className="p-2">
         <span className="flex flex-row gap-1">
-          <CardTitle className="leading-6">{title}</CardTitle>
+          <CardTitle className="leading-6 xl:text-xl">{title}</CardTitle>
         </span>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription className="xl:text-base">
+          {description}
+        </CardDescription>
       </CardHeader>
       <CardContent className="px-2 flex flex-wrap gap-3">
         {tags.map((tag) => {

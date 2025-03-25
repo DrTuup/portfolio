@@ -43,7 +43,7 @@ export default function Home() {
   }
   return (
     <>
-      <div className="flex flex-col gap-4 md:w-8/12 xl:w-6/12">
+      <div className="flex flex-col gap-4 md:w-8/12">
         <Image
           loading="eager"
           src="/memoji.png"
@@ -74,7 +74,7 @@ export default function Home() {
         <Separator />
       </div>
       <h3 className="font-bold md:text-lg xl:text-2xl">Tech stack</h3>
-      <div className="flex flex-col gap-7 md:flex-row md:justify-center xl:w-10/12">
+      <div className="flex flex-col gap-7 md:flex-row md:justify-center md:w-8/12">
         {techStackCards.map((item) => {
           return (
             <TechStackCard
@@ -86,12 +86,12 @@ export default function Home() {
           );
         })}
       </div>
-      <div className="w-full xl:w-10/12">
+      <div className="w-full xl:w-8/12">
         <Separator className="my-4" />
       </div>
       <h3 className="font-bold md:text-lg xl:text-2xl">Free time</h3>
       <Carousel
-        className="self-center md:w-full xl:w-10/12"
+        className="self-center md:w-full xl:w-8/12"
         opts={{
           loop: true,
         }}

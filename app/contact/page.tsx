@@ -23,6 +23,7 @@ import { Spacer } from "@/components/spacer";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { Header } from "@/components/header";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   name: z
@@ -46,6 +47,7 @@ const formSchema = z.object({
 
 export default function Contact() {
   const [messageChars, setMessageChars] = useState(0);
+  const [isSending, setIsSending] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -55,10 +57,21 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSending(true);
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
+
+    if (!response.ok) {
+      toast("❌ Something went wrong when sending the message!");
+      setIsSending(false);
+      return;
+    }
+    toast("✅ Message sent!");
+    setIsSending(false);
   }
 
   return (
@@ -129,7 +142,9 @@ export default function Contact() {
               )}
             />
             <span className="flex flex-row items-center justify-between basis-full">
-              <Button type="submit">Submit</Button>
+              <Button type="submit" disabled={isSending}>
+                {isSending ? "Sending..." : "Send"}
+              </Button>
               <Button
                 onClick={() => open("https://linkedin.com/in/ruben-claessens")}
               >
@@ -146,7 +161,6 @@ export default function Contact() {
           </form>
         </Form>
       </div>
-
       <Spacer />
     </>
   );
