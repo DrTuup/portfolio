@@ -92,17 +92,9 @@ export const projects: ProjectCardProps[] = [
   },
   {
     title: "kilometerweter",
-    description: "Basic CRUD application for tracking your kilometers.",
+    description: "A very small project for monitoring the kilometers I drive",
     link: "",
     repo: "https://github.com/DrTuup/kilometerweter-frontend",
     tags: ["Next.JS", "Golang", "Docker", "GitHub Actions", "Postgresql"],
-  },
-  {
-    title: "RD4-Sync",
-    description:
-      "The calendar from RD4 (local trash collection) provided as subscription to your own calendar.",
-    link: "",
-    repo: "https://github.com/DrTuup/rd4-sync",
-    tags: ["Python", "Cloudflare", "Traefik", "Docker", "GitHub Actions"],
   },
 ];
