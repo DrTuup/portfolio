@@ -106,4 +106,11 @@ export const projects: ProjectCardProps[] = [
     repo: "https://github.com/DrTuup/rd4-sync",
     tags: ["Python", "Cloudflare", "Flask", "Docker", "GitHub Actions"],
   },
+  {
+    title: "stitchify",
+    description: "Application to turn images into crochet tapestry templates.",
+    link: "https://stitchify-nu.vercel.app/",
+    repo: "https://github.com/DrTuup/stitchify",
+    tags: ["Next.JS", "Vercel", "TailwindCSS", "GitHub Actions"],
+  },
 ];
