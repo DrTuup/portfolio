@@ -53,12 +53,12 @@ export default function Home() {
         />
         <h1 className="font-bold text-xl xl:text-2xl">Ruben Claessens</h1>
         <h2 className="font-extrabold text-5xl xl:text-7xl pb-1 w-fit text-transparent bg-clip-text bg-gradient-to-br from-chart-1 to-[#EAEAEA]">
-          Cloud
+          DevOps
           <br />
           Engineer
         </h2>
         <p className="xl:text-xl">
-          A {calcAge()} years old <strong>Cloud Engineer</strong> who loves
+          A {calcAge()} years old <strong>DevOps Engineer</strong> who loves
           automating everything and turning ideas into code.
           <br />
         </p>
