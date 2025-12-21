@@ -1,6 +1,6 @@
 import {
+  ChessKnight,
   DumbbellIcon,
-  Gamepad2Icon,
   LaptopIcon,
   LucideIcon,
   Volleyball,
@@ -28,10 +28,6 @@ export const tools: string[] = ["VS Code", "Git", "Postman", "Jira", "UML"];
 
 export const freetime: { title: string; icon: LucideIcon }[] = [
   {
-    title: "Play games",
-    icon: Gamepad2Icon,
-  },
-  {
     title: "Build projects",
     icon: LaptopIcon,
   },
@@ -40,23 +36,27 @@ export const freetime: { title: string; icon: LucideIcon }[] = [
     icon: DumbbellIcon,
   },
   {
-    title: "Watch football",
+    title: "Watch sports",
     icon: Volleyball,
+  },
+  {
+    title: "Play chess",
+    icon: ChessKnight,
   },
 ];
 
 export const education: ExperienceCardProps[] = [
   {
-    what: "HBO-ICT Software Engineering",
-    where: "Zuyd University of Applied Sciences",
-    when: "Sept. 2020 - Nov. 2024",
-    tags: [".NET Core", "Python", "SQL", "UML", "Git", "GitHub"],
-  },
-  {
     what: "HAVO",
     where: "Bernadinuscollege - Middle school",
     when: "Sept. 2015 - June 2020",
     tags: ["Mathematics", "Chemistry", "Physics"],
+  },
+  {
+    what: "HBO-ICT Software Engineering",
+    where: "Zuyd University of Applied Sciences",
+    when: "Sept. 2020 - Nov. 2024",
+    tags: [".NET Core", "Python", "SQL", "UML", "Git", "GitHub"],
   },
 ];
 
@@ -70,7 +70,7 @@ export const work: ExperienceCardProps[] = [
   {
     what: "Cloud Engineer",
     where: "Enexis Groep",
-    when: "Sept. 2022 - now",
+    when: "Sept. 2022 - Nov. 2025",
     tags: [
       "Ansible",
       "Terraform",
@@ -78,6 +78,19 @@ export const work: ExperienceCardProps[] = [
       "AWS",
       "Azure",
       "GitLab CI/CD",
+    ],
+  },
+  {
+    what: "MLOps Engineer",
+    where: "Enexis Groep",
+    when: "Nov. 2025 - now",
+    tags: [
+      "Terraform",
+      "Agile Scrum",
+      "AWS",
+      "GitLab CI/CD",
+      "Kubernetes",
+      "Python",
     ],
   },
 ];
